@@ -40,6 +40,7 @@ li a:hover:not(.active) {
   margin-top: 35vh;
 }
 
+
 #start {
   background: #3498db;
   width: 180px;
@@ -75,9 +76,11 @@ header {
 }
 
 #logout {
+  border-radius: 15px;
   border: solid 1px;
   color: white;
   background: darkblue;
+  margin-top: 11px;
 }
 
 #container {
