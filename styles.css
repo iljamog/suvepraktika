@@ -58,9 +58,32 @@ li a:hover:not(.active) {
   cursor: pointer;
 }
 
+.header {
+  position: absolute;
+}
+
 .hidden {
   display: none;
 }
+
+
+
+.three ul {
+  padding: 70px;
+  background: white;
+}
+.three li {
+  display: inline-block;
+}
+.three a {
+  padding: 1em;
+  display: block;
+  color:rgb(8,128,249);
+  border-right: 1px solid #BAD78B;
+  background: rgb(238,250,246);
+}
+
+.three a:hover {background: #BADw78B}
 
 .content {
   position: absolute;
