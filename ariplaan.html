@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- <script defer src="script.js"></script> -->
+    <title>OOP Eksam</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="menubar2">
+        <ul>
+          <li><a href="index.html">Taotlus</a></li>
+          <li><a href="andmed.html">Andmed</a></li>
+          <li><a href="ariplaan.html" class="active">Äriplaan</a></li>
+          <li><a href="finants.html" class="finants">Finantsprognoosid</a></li>
+          <li><a href="cv.html" class="cv">CV</a></li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+          <input type="file" id="uploadPlan" />
+
+          <button type="submit" id="uploadPlanButton">Lae üles</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
