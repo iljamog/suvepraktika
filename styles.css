@@ -85,6 +85,38 @@ li a:hover:not(.active) {
 
 .three a:hover {background: #BADw78B}
 
+.vertical-menu {
+  padding-left: 220px;
+  width: 200px; /* Set a width if you like */
+  display: block;
+}
+
+.vertical-menu a {
+  border: 1px solid lightblue;
+  border-radius: 10px;
+  padding: 1em;
+  background-color:rgb(238,250,246);
+  color: black;
+  display: block; 
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; 
+}
+
+.vertical-menu a.active {
+  background-color:	rgb(42, 117, 147);
+  color: white;
+}
+
+#menubar2 {
+  position: absolute;
+  padding: 5px;
+  left: 520px;
+  top: -130px;
+}
+
 .content {
   position: absolute;
   left: 50%;
