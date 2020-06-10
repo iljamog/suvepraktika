@@ -135,3 +135,25 @@ header {
 
 #container {
 }
+
+#btn {
+  background-color: #FF6700;
+  border: 1px solid black;
+  color: white;
+  padding: 7px 24px;
+  font-size: 18px;
+}
+
+#previous_btn_personal_details {
+  background-color: #FF6700;
+  border: 1px solid black;
+  color: white;
+  padding: 7px 24px;
+  font-size: 18px;
+}
+
+#btn_personal_details, #btn_data, #btn_contact_details{
+  border: 1px solid black;
+  padding: 7px 24px;
+  font-size: 18px;
+}
