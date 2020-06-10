@@ -25,5 +25,5 @@
 // });
 
 document.querySelector("#start").addEventListener("click", (e) => {
-  window.location.href = "andmed.html";
+  window.location.href = "taotlus.html";
 });
