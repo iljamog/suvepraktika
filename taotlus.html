@@ -108,7 +108,7 @@
       <body>
         <br />
         <div class="container box">
-          <form method="post" id="register_form">
+          <form method="post" id="register_form" action = "pdfmaker.php">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
               <li class="nav-item">
                 <a
@@ -188,7 +188,7 @@
                     </div>
                     <div class="form-group">
                       <label>Sugu</label>
-                      <select id="gender" required>
+                      <select id="gender" name="gender" required>
                         <option value="male">Mees</option>
                         <option value="female">Naine</option>
                       </select>
@@ -297,7 +297,7 @@
                     <div class="text-center">
                       <button type="button" name="previous_btn_personal_details" id="previous_btn_personal_details" class="btn btn-default btn-lg">Eelmine</button>
                       <button
-                        type="button"
+                        type="submit"
                         name="btn_contact_details"
                         id="btn_contact_details"
                         class="btn btn-success btn-lg"
