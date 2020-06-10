@@ -25,8 +25,6 @@ li a {
   color: black;
 }
 
-li a:hover:not(.active) {
-}
 
 #menubar2 {
   display: flex;
@@ -76,13 +74,21 @@ li a:hover:not(.active) {
   background: rgb(238, 250, 246);
 }
 
+.nav-item a {
+  border: 1px solid #ccc;
+  background-color: rgb(238, 250, 246);
+  color: rgb(8, 128, 249);
+}
+
+
+
 .three a:hover {
   border: 1px solid blue;
 }
 
 .vertical-menu {
   padding-left: 220px;
-  width: 200px; /* Set a width if you like */
+  width: 200px;
   display: block;
 }
 
@@ -136,13 +142,6 @@ header {
 #container {
 }
 
-#btn {
-  background-color: #FF6700;
-  border: 1px solid black;
-  color: white;
-  padding: 7px 24px;
-  font-size: 18px;
-}
 
 #previous_btn_personal_details {
   background-color: #FF6700;
