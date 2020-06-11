@@ -115,15 +115,9 @@ li a {
   top: -130px;
 }
 
-#navBarNav ul li{
+#navBarNav ul li {
   display: flex;
 }
-
-/* .content {
-  position: relative;
-  left: 67%;
-  transform: translateX(-50%);
-} */
 
 header {
   display: flex;
@@ -137,9 +131,6 @@ header {
   color: white;
   background: darkblue;
   margin-top: 11px;
-}
-
-#container {
 }
 
 .previousbutton {
@@ -161,17 +152,16 @@ header {
 }
 
 .navbar-toggler {
-  padding: .25rem .75rem;
+  padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1;
   background-color: #454541;
   border: 1px solid #e18f2a;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 
 @media (max-width: 768px) {
-  #navBarNav ul li{
+  #navBarNav ul li {
     display: block;
-
   }
 }
