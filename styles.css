@@ -115,11 +115,9 @@ li a {
   top: -130px;
 }
 
-/* .content {
-  position: relative;
-  left: 67%;
-  transform: translateX(-50%);
-} */
+#navBarNav ul li {
+  display: flex;
+}
 
 header {
   display: flex;
@@ -133,9 +131,6 @@ header {
   color: white;
   background: darkblue;
   margin-top: 11px;
-}
-
-#container {
 }
 
 .previousbutton {
@@ -154,4 +149,19 @@ header {
 
 .tocenter {
   left: 50%;
+}
+
+.navbar-toggler {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: #454541;
+  border: 1px solid #e18f2a;
+  border-radius: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  #navBarNav ul li {
+    display: block;
+  }
 }

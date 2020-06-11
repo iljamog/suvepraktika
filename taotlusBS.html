@@ -28,9 +28,12 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="form.js"></script>
+
     <title>EVAT Taotlus</title>
   </head>
   <body>
+  
     <div>
       <nav class="navbar sticky-top first-nav pb-3">
         <a class="navbar-brand" href="#">
@@ -53,7 +56,7 @@
         <a class="navbar-brand" href="#">
           <img
             src="img/eures.png"
-            alt="eesti"
+            alt="eures"
             class="header"
             style="right: 21%; height: 56px;"
           />
@@ -86,20 +89,37 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navBarNav">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Avaleht</a>
-            <a class="nav-item nav-link" href="#">Otsin tööd</a>
-            <a class="nav-item nav-link" href="#">Tööta ja õpi</a>
-            <a class="nav-item nav-link" href="#">Vähenenud töövõime</a>
-            <a class="nav-item nav-link" href="#">Teenused</a>
-            <a class="nav-item nav-link" href="#">Toetused ja hüvitised</a>
-            <a class="nav-item nav-link" href="#"
-              >Tööandjale ja koostööpartnerile</a
-            >
-            <a class="nav-item nav-link" href="#">Töötukassast</a>
-            <a class="nav-item nav-link" href="#">e-töötukassa</a>
-          </div>
-        </div>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Avaleht <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Otsin tööd</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tööta ja õpi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Vähenenud töövõime</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Teenused</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Toetused ja hüvitised</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tööandjale ja koostööpartnerile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Töötukassast</a>
+            </li>
+            <li class="nav-item aive">
+              <a class="nav-link" href="#">e-töötukassassa</a>
+            </li>
+
+
+          </ul>
       </nav>
     </div>
 
@@ -201,9 +221,9 @@
                 <div class="text-center">
                   <button
                     type="button"
-                    name="btn_data"
-                    id="btn_data"
-                    class="btn btn-info btn-lg"
+                    name="next_btn_data"
+                    id="next_btn_data"
+                    class="btn btn-info btn-lg nextbutton"
                   >
                     Jätka
                   </button>
@@ -228,17 +248,17 @@
                 <div class="text-center">
                   <button
                     type="button"
-                    name="previous_btn_personal_details"
-                    id="previous_btn_personal_details"
-                    class="btn btn-default btn-lg"
+                    name="previous_btn_finance"
+                    id="previous_btn_finance"
+                    class="btn btn-default btn-lg previousbutton"
                   >
                     Eelmine
                   </button>
                   <button
                     type="button"
-                    name="btn_personal_details"
-                    id="btn_personal_details"
-                    class="btn btn-info btn-lg"
+                    name="next_btn_finance"
+                    id="next_btn_finance"
+                    class="btn btn-info btn-lg nextbutton"
                   >
                     Jätka
                   </button>
@@ -264,17 +284,17 @@
                 <div class="text-center">
                   <button
                     type="button"
-                    name="previous_btn_personal_details"
-                    id="previous_btn_personal_details"
-                    class="btn btn-default btn-lg"
+                    name="previous_btn_business"
+                    id="previous_btn_business"
+                    class="btn btn-default btn-lg previousbutton"
                   >
                     Eelmine
                   </button>
                   <button
                     type="button"
-                    name="btn_personal_details"
-                    id="btn_personal_details"
-                    class="btn btn-info btn-lg"
+                    name="next_btn_business"
+                    id="next_btn_business"
+                    class="btn btn-info btn-lg nextbutton"
                   >
                     Jätka
                   </button>
@@ -298,17 +318,17 @@
                 <div class="text-center">
                   <button
                     type="button"
-                    name="previous_btn_personal_details"
-                    id="previous_btn_personal_details"
-                    class="btn btn-default btn-lg"
+                    name="previous_btn_cv"
+                    id="previous_btn_cv"
+                    class="btn btn-default btn-lg previousbutton"
                   >
                     Eelmine
                   </button>
                   <button
                     type="submit"
-                    name="btn_contact_details"
-                    id="btn_contact_details"
-                    class="btn btn-success btn-lg"
+                    name="next_btn_cv"
+                    id="next_btn_cv"
+                    class="btn btn-success btn-lg nextbutton"
                   >
                     Lõpeta
                   </button>
@@ -322,3 +342,4 @@
     </div>
   </body>
 </html>
+
