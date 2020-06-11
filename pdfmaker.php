@@ -4,7 +4,7 @@ require("fpdf/fpdf.php");
 
 
 //vormi submit
-if (isset($_POST['btn_contact_details'])){
+if (isset($_POST['next_btn_cv'])){
 
     // andmete kinni püüdmine
     $firstName = $_POST['fname'];
