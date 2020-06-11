@@ -11,7 +11,7 @@ ul {
   text-align: center;
 }
 
-li {
+.menu {
   border: 1px solid lightblue;
   margin-top: 3px;
 }
@@ -62,7 +62,6 @@ div {
   display: none;
 }
 
-
 .three a {
   padding: 1em;
   display: block;
@@ -71,7 +70,7 @@ div {
   background: rgb(238, 250, 246);
 }
 
-.container{
+.container {
   max-width: 1800px;
 }
 
@@ -201,10 +200,10 @@ header {
   border: 1px solid black;
 }
 
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css');
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css");
 html,
 body {
-  height: 100%
+  height: 100%;
 }
 
 .container {
