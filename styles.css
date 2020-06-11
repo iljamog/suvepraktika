@@ -115,9 +115,11 @@ li a {
   top: -130px;
 }
 
-#navBarNav ul li {
-  display: flex;
-}
+/* .content {
+  position: relative;
+  left: 67%;
+  transform: translateX(-50%);
+} */
 
 header {
   display: flex;
@@ -131,6 +133,9 @@ header {
   color: white;
   background: darkblue;
   margin-top: 11px;
+}
+
+#container {
 }
 
 .previousbutton {
