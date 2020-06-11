@@ -1,8 +1,4 @@
-// document.querySelector("#start").addEventListener("click", (e) => {
-//   window.location.href = "taotlus.html";
-// });
-
-// Nuppude
+// Jätka ja tagasi nuppude funktsionaalsus
 
 $("#next_btn_data").click(function () {
   $("#business-tab").trigger("click");
