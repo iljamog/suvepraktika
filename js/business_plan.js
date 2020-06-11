@@ -108,25 +108,26 @@ function createBusinessPlanForm() {
 
         '<h3> TEGEVUSE KÄIVITAMISE KAVA </h3> <br>',
 
-        '<label>Tootmiseks või teenuse osutamiseks on mul praeguseks olemas ...</label>',
-        /*
-        '<div class="form-group row" >',
-            '<label >Ruum, vahend või seade, mis on olemas …</label>',
-            '<input class="form-control col-md-3" type="text"> <br>',
-            
-            '<label >Saan võtta kasutusele (kohe või …)</label>',
-            '<input class="form-control col-md-3" type="text">',
+        '<p> Tootmiseks või teenuse osutamiseks on mul praeguseks olemas ...</p>',
+        
+        '<div class="row">  <br><br>'+
+            '<div class="col-sm-6" >Ruum, vahend või seade, mis on olemas …'+
+                '<textarea class="form-control" id="business_idea" name="business_idea" class="text" rows ="3" form="register_form"></textarea> '+
+            '</div>'+
+            '<div class="col-sm-6" >Saan võtta kasutusele (kohe või …)'+
+                '<textarea class="form-control" id="business_idea" name="business_idea" class="text" rows ="3" form="register_form"></textarea> '+
+            '</div>'+
         '</div>',
-        */
-        '<div class="row">',
-            '<div class="col-sm-6" style="background-color:lavender;">.col-sm-8',
-                '<label >Ruum, vahend või seade, mis on olemas …</label>',
-                '<input class="form-control col-md-6" type="text"> <br>',
-            '</div>',
-            '<div class="col-sm-6" style="background-color:lavender;">.col-sm-8',
-                '<label >Saan võtta kasutusele (kohe või …)</label>',
-                '<input class="form-control col-md-6" type="text">',
-            '</div>',
+
+        '<p> Lisaks vajan tootmiseks/teenuse osutamiseks ...</p>',
+
+        '<div class="row">  <br><br>'+
+            '<div class="col-sm-6" >Ruum, vahend või seade, mis on olemas …'+
+                '<textarea class="form-control" id="business_idea" name="business_idea" class="text" rows ="3" form="register_form"></textarea> '+
+            '</div>'+
+            '<div class="col-sm-6" >Saan võtta kasutusele (kohe või …)'+
+                '<textarea class="form-control" id="business_idea" name="business_idea" class="text" rows ="3" form="register_form"></textarea> '+
+            '</div>'+
         '</div>',
 
         

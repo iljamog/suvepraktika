@@ -161,12 +161,43 @@ header {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(9,55,244, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
+/* mobiiliversioon */
 @media (max-width: 769px) {
   #navBarNav ul li {
     display: block;
+  }
+
+  .navbar #eesti {
+    visibility: hidden;
+  }
+  .navbar #eures {
+    visibility: hidden;
+  }
+
+  .previousbutton {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+
+  .nextbutton {
+    padding: 8px 20px;
+    font-size: 12px;
   }
 }
 
 h3{
   margin-top: 50px;
+}
+.photo {
+  display: inline-block;
+}
+
+.photo:hover:after {
+  content: attr(data-title);
+  position: absolute;
+  z-index: 1;
+  background: rgba(225, 225, 230, 0.9);
+  font-size: 11px;
+  padding: 5px 10px;
+  border: 1px solid black;
 }
