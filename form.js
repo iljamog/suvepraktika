@@ -1,6 +1,9 @@
 // document.querySelector("#start").addEventListener("click", (e) => {
 //   window.location.href = "taotlus.html";
 // });
+
+// Nuppude
+
 $("#next_btn_data").click(function () {
   $("#business-tab").trigger("click");
 });
