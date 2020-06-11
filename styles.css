@@ -25,7 +25,6 @@ li a {
   color: black;
 }
 
-
 #menubar2 {
   display: flex;
   flex-direction: column;
@@ -80,8 +79,6 @@ li a {
   color: rgb(8, 128, 249);
 }
 
-
-
 .three a:hover {
   border: 1px solid blue;
 }
@@ -118,12 +115,11 @@ li a {
   top: -130px;
 }
 
-.content {
-  position: absolute;
-  left: 50%;
-  top: 35%;
-  transform: translateX(-50%) translateY(-50%);
-}
+/* .content {
+  position: relative;
+  left: 67%;
+  transform: translateX(-50%);
+} */
 
 header {
   display: flex;
@@ -142,17 +138,22 @@ header {
 #container {
 }
 
-
 #previous_btn_personal_details {
-  background-color: #FF6700;
+  background-color: #ff6700;
   border: 1px solid black;
   color: white;
   padding: 7px 24px;
   font-size: 18px;
 }
 
-#btn_personal_details, #btn_data, #btn_contact_details{
+#btn_personal_details,
+#btn_data,
+#btn_contact_details {
   border: 1px solid black;
   padding: 7px 24px;
   font-size: 18px;
+}
+
+.tocenter {
+  left: 50%;
 }
