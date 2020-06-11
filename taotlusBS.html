@@ -6,6 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
+    <script src="/js/bootstrap.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -28,9 +29,12 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+
     <title>EVAT Taotlus</title>
   </head>
   <body>
+  
     <div>
       <nav class="navbar sticky-top first-nav pb-3">
         <a class="navbar-brand" href="#">
@@ -53,7 +57,7 @@
         <a class="navbar-brand" href="#">
           <img
             src="img/eures.png"
-            alt="eesti"
+            alt="eures"
             class="header"
             style="right: 21%; height: 56px;"
           />
@@ -86,20 +90,37 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navBarNav">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Avaleht</a>
-            <a class="nav-item nav-link" href="#">Otsin tööd</a>
-            <a class="nav-item nav-link" href="#">Tööta ja õpi</a>
-            <a class="nav-item nav-link" href="#">Vähenenud töövõime</a>
-            <a class="nav-item nav-link" href="#">Teenused</a>
-            <a class="nav-item nav-link" href="#">Toetused ja hüvitised</a>
-            <a class="nav-item nav-link" href="#"
-              >Tööandjale ja koostööpartnerile</a
-            >
-            <a class="nav-item nav-link" href="#">Töötukassast</a>
-            <a class="nav-item nav-link" href="#">e-töötukassa</a>
-          </div>
-        </div>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Avaleht <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Otsin tööd</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tööta ja õpi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Vähenenud töövõime</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Teenused</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Toetused ja hüvitised</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tööandjale ja koostööpartnerile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Töötukassast</a>
+            </li>
+            <li class="nav-item aive">
+              <a class="nav-link" href="#">e-töötukassassa</a>
+            </li>
+
+
+          </ul>
       </nav>
     </div>
 
@@ -223,6 +244,7 @@
                     id="first_name"
                     class="form-control"
                   />
+<<<<<<< HEAD
                 </div>
                 <br />
                 <div class="text-center">
@@ -244,6 +266,29 @@
                   </button>
                 </div>
                 <br />
+=======
+                </div>
+                <br />
+                <div class="text-center">
+                  <button
+                    type="button"
+                    name="previous_btn_personal_details"
+                    id="previous_btn_personal_details"
+                    class="btn btn-default btn-lg"
+                  >
+                    Eelmine
+                  </button>
+                  <button
+                    type="button"
+                    name="btn_personal_details"
+                    id="btn_personal_details"
+                    class="btn btn-info btn-lg"
+                  >
+                    Jätka
+                  </button>
+                </div>
+                <br />
+>>>>>>> 271a1367c1e2c8c12a11ca85cfb20c5d6593fd09
               </div>
             </div>
           </div>
@@ -259,6 +304,7 @@
                     id="first_name"
                     class="form-control"
                   />
+<<<<<<< HEAD
                 </div>
                 <br />
                 <div class="text-center">
@@ -280,6 +326,29 @@
                   </button>
                 </div>
                 <br />
+=======
+                </div>
+                <br />
+                <div class="text-center">
+                  <button
+                    type="button"
+                    name="previous_btn_personal_details"
+                    id="previous_btn_personal_details"
+                    class="btn btn-default btn-lg"
+                  >
+                    Eelmine
+                  </button>
+                  <button
+                    type="button"
+                    name="btn_personal_details"
+                    id="btn_personal_details"
+                    class="btn btn-info btn-lg"
+                  >
+                    Jätka
+                  </button>
+                </div>
+                <br />
+>>>>>>> 271a1367c1e2c8c12a11ca85cfb20c5d6593fd09
               </div>
             </div>
           </div>
@@ -322,3 +391,9 @@
     </div>
   </body>
 </html>
+
+<script>
+  $(document).on('click',function(){
+  $('.collapse').collapse('hide');
+  })
+</script> 
