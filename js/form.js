@@ -27,3 +27,7 @@ $("#previous_btn_finance").click(function () {
 $("#previous_btn_cv").click(function () {
   $("#finance-tab").trigger("click");
 });
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
