@@ -50,6 +50,10 @@ li a {
   cursor: pointer;
 }
 
+div {
+  max-width: 1800px;
+}
+
 .header {
   position: absolute;
 }
@@ -58,19 +62,17 @@ li a {
   display: none;
 }
 
-.three ul {
-  padding: 70px;
-  background: white;
-}
-.three li {
-  display: inline-block;
-}
+
 .three a {
   padding: 1em;
   display: block;
   color: rgb(8, 128, 249);
   border-right: 1px solid #bad78b;
   background: rgb(238, 250, 246);
+}
+
+.container{
+  max-width: 1800px;
 }
 
 .nav-item a {
@@ -197,4 +199,19 @@ header {
   font-size: 11px;
   padding: 5px 10px;
   border: 1px solid black;
+}
+
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css');
+html,
+body {
+  height: 100%
+}
+
+.container {
+  max-width: 1700px;
+}
+
+li.nav-item {
+  padding: 10px 12px;
+  border: 1px solid transparent;
 }
