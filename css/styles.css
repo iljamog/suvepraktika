@@ -183,11 +183,28 @@ header {
     padding: 8px 20px;
     font-size: 12px;
   }
+<<<<<<< HEAD
 }
 
 h3{
   margin-top: 50px;
 }
+.photo {
+  display: inline-block;
+}
+
+.photo:hover:after {
+  content: attr(data-title);
+  position: absolute;
+  z-index: 1;
+  background: rgba(225, 225, 230, 0.9);
+  font-size: 11px;
+  padding: 5px 10px;
+  border: 1px solid black;
+=======
+>>>>>>> 04d1bbe8a72a57eedd7e66e167b15d89896135d2
+}
+
 .photo {
   display: inline-block;
 }
