@@ -2,6 +2,7 @@
 
 $("#next_btn_data").click(function () {
   $("#business-tab").trigger("click");
+  console.log("Tootab");
 });
 
 $("#next_btn_business").click(function () {
@@ -22,4 +23,8 @@ $("#previous_btn_finance").click(function () {
 
 $("#previous_btn_cv").click(function () {
   $("#finance-tab").trigger("click");
+});
+
+$(document).on("click", function () {
+  $(".collapse").collapse("hide");
 });
