@@ -138,7 +138,7 @@ header {
 #container {
 }
 
-#previous_btn_personal_details {
+.previousbutton {
   background-color: #ff6700;
   border: 1px solid black;
   color: white;
@@ -146,9 +146,7 @@ header {
   font-size: 18px;
 }
 
-#btn_personal_details,
-#btn_data,
-#btn_contact_details {
+.nextbutton {
   border: 1px solid black;
   padding: 7px 24px;
   font-size: 18px;
