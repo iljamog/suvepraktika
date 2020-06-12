@@ -134,19 +134,35 @@ header {
   margin-top: 11px;
 }
 
-.previousbutton {
-  background-color: #ff6700;
-  border: 1px solid black;
-  color: white;
+.btn {
   padding: 7px 24px;
   font-size: 18px;
+  font-weight: bold;
+  width: 160px;
+}
+
+.previousbutton {
+  border: 1px solid  #010202;
+  background-color: #ff6700;
+  color: white;
 }
 
 .nextbutton {
-  border: 1px solid black;
-  padding: 7px 24px;
-  font-size: 18px;
+  border: 1px solid #6fa8b1;
+  background-color: #bddbdf;
+  color: rgb(46, 34, 219);
 }
+
+.btn-success{
+  border: 1px solid  #010202;
+  background-color: #34c408;
+  color: white;
+}
+
+.busbtn {
+  background-color: #2c78c4;
+}
+
 
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
@@ -173,14 +189,9 @@ header {
     visibility: hidden;
   }
 
-  .previousbutton {
+  .btn {
     padding: 8px 20px;
-    font-size: 12px;
-  }
-
-  .nextbutton {
-    padding: 8px 20px;
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
