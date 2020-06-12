@@ -31,3 +31,13 @@ $("#previous_btn_cv").click(function () {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
+
+$("#uploadCollapse").click(function () {
+  $("#collapse2").collapse("hide");
+  $("#collapse1").collapse("show");
+});
+
+$("#fillCollapse").click(function () {
+  $("#collapse1").collapse("hide");
+  $("#collapse2").collapse("show");
+});

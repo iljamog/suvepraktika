@@ -2,11 +2,11 @@
 
 function createBusinessPlanForm() {
   // kustutab nupud
-  $("#business_plan_form_div").empty();
+  //   $("#business_plan_form_div").empty();
 
   // tekitab vormi
   // ! VAHETADA id ja nimed
-  $("#business_plan_form_div").append(
+  $("#business_plan_fill_form").append(
     "<label><h4>Loodava ettevõtte nimi</h4></label> <br>",
     "<input type='text' name='company_name' id='business_name' class='form-control'/>",
 
@@ -128,8 +128,8 @@ function createBusinessPlanForm() {
   );
 }
 
-$(document).ready(function () {
-  document
-    .getElementById("business_plan_form_button")
-    .addEventListener("click", createBusinessPlanForm);
-});
+// $(document).ready(function () {
+//   document
+//     .getElementById("fillCollapse")
+//     .addEventListener("click", createBusinessPlanForm);
+// });
