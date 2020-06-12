@@ -8,7 +8,108 @@ class TextNormalizerFPDF extends FPDF{
 	function __construct()
 	{
 		parent::__construct();
-	}
+    }
+    
+    var $widths;
+    var $aligns;
+
+    function SetWidths($w)
+    {
+        //Set the array of column widths
+        $this->widths=$w;
+    }
+
+    function SetAligns($a)
+    {
+        //Set the array of column alignments
+        $this->aligns=$a;
+    }
+
+    function Row($data)
+    {
+        //Calculate the height of the row
+        $nb=0;
+        for($i=0;$i<count($data);$i++)
+            $nb=max($nb,$this->NbLines($this->widths[$i],$data[$i]));
+        $h=5*$nb;
+        //Issue a page break first if needed
+        $this->CheckPageBreak($h);
+        //Draw the cells of the row
+        for($i=0;$i<count($data);$i++)
+        {
+            $w=$this->widths[$i];
+            $a=isset($this->aligns[$i]) ? $this->aligns[$i] : 'L';
+            //Save the current position
+            $x=$this->GetX();
+            $y=$this->GetY();
+            //Draw the border
+            $this->Rect($x,$y,$w,$h);
+            //Print the text
+            $this->MultiCell($w,5,$data[$i],0,$a);
+            //Put the position to the right of the cell
+            $this->SetXY($x+$w,$y);
+        }
+        //Go to the next line
+        $this->Ln($h);
+    }
+
+    function CheckPageBreak($h)
+    {
+        //If the height h would cause an overflow, add a new page immediately
+        if($this->GetY()+$h>$this->PageBreakTrigger)
+            $this->AddPage($this->CurOrientation);
+    }
+
+    function NbLines($w,$txt)
+    {
+        //Computes the number of lines a MultiCell of width w will take
+        $cw=&$this->CurrentFont['cw'];
+        if($w==0)
+            $w=$this->w-$this->rMargin-$this->x;
+        $wmax=($w-2*$this->cMargin)*1000/$this->FontSize;
+        $s=str_replace("\r",'',$txt);
+        $nb=strlen($s);
+        if($nb>0 and $s[$nb-1]=="\n")
+            $nb--;
+        $sep=-1;
+        $i=0;
+        $j=0;
+        $l=0;
+        $nl=1;
+        while($i<$nb)
+        {
+            $c=$s[$i];
+            if($c=="\n")
+            {
+                $i++;
+                $sep=-1;
+                $j=$i;
+                $l=0;
+                $nl++;
+                continue;
+            }
+            if($c==' ')
+                $sep=$i;
+            $l+=$cw[$c];
+            if($l>$wmax)
+            {
+                if($sep==-1)
+                {
+                    if($i==$j)
+                        $i++;
+                }
+                else
+                    $i=$sep+1;
+                $sep=-1;
+                $j=$i;
+                $l=0;
+                $nl++;
+            }
+            else
+                $i++;
+        }
+        return $nl;
+    }
 
 	function MultiCell($w, $h, $txt, $border=0, $align='J', $fill=false)
 	{
@@ -307,7 +408,7 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Tunnen oma klienti, sest tänaseks olen teinud järgmisi tegevusi (nt. kõned, kohtumised, eelkokkulepped, proovitööd, …) ja jõudnud … (arv) kliendini:"); 
+    $pdf->Write(5 ,"Tunnen oma klienti, sest tänaseks olen teinud järgmisi tegevusi (nt. kõned, kohtumised, eelkokkulepped, proovitööd, ...) ja jõudnud ... (arv) kliendini:"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_client_2);
@@ -328,7 +429,7 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Esimesel tegevusaastal saab mul olema … (arv) klienti, sest … (põhjendus)"); 
+    $pdf->Write(5 ,"Esimesel tegevusaastal saab mul olema ... (arv) klienti, sest ... (põhjendus)"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_client_5);
@@ -369,7 +470,7 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(10);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Ca 3 otsest konkurenti, kellega ma saan ennast võrrelda on …, nende majandusnäitajad on:"); 
+    $pdf->Write(5 ,"Ca 3 otsest konkurenti, kellega ma saan ennast võrrelda on ..., nende majandusnäitajad on:"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_competitor_1);
@@ -438,7 +539,7 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Äri käivitamisel (nt. esimesed … kuud) on minu eelarve ja ajakava nende turundustegevuste elluviimiseks "); 
+    $pdf->Write(5 ,"Äri käivitamisel (nt. esimesed ... kuud) on minu eelarve ja ajakava nende turundustegevuste elluviimiseks "); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_marketing_4);
@@ -454,14 +555,63 @@ if (isset($_POST['next_btn_cv'])){
     // TEGEVUSE KÄIVITAMISE KAVA
 
     $pdf->AddPage();
-    $pdf->MultiCell("$cellwidth","5", "business_action_1_1: ". $business_action_1_1, "B", 2, "L");
-    $pdf->MultiCell("$cellwidth","5", "business_action_1_2: ". $business_action_1_2, "B", 2, "L");
-    $pdf->MultiCell("$cellwidth","5", "business_action_2_1: ". $business_action_2_1, "B", 2, "L");
-    $pdf->MultiCell("$cellwidth","5", "business_action_2_2: ". $business_action_2_2, "B", 2, "L");
-    $pdf->MultiCell("$cellwidth","5", "business_action_2_3: ". $business_action_2_3, "B", 2, "L");
-    $pdf->MultiCell("$cellwidth","5", "business_action_3_1: ". $business_action_3_1, "B", 2, "L");
-    $pdf->MultiCell("$cellwidth","5", "business_action_4_1: ". $business_action_4_1, "B", 2, "L");
-    $pdf->MultiCell("$cellwidth","5", "business_action_5_1: ". $business_action_5_1, "B", 2, "L");
+
+    $pdf->SetFont('Arial','B',15);
+    $pdf->Cell("0","10", "TEGEVUSE KÄIVITAMISE KAVA", 0, 2, "C");
+    $pdf->Ln(10);
+
+    $pdf->SetFont('Arial','B',12); 
+    $pdf->Write(5 ,"Tootmiseks või teenuse osutamiseks on mul praeguseks olemas ..."); 
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln(10);
+
+    // tabel
+    $pdf->SetWidths(array(130,50));
+    $temporaryArray = cellForEachStringDouble($business_action_1_1,$business_action_1_2);
+    $pdf->Row(array("Ruum, vahend või seade, mis on olemas ...","Saan võtta kasutusele"));
+    for ($i=0; $i < sizeof($temporaryArray[0]); $i++) { 
+        $pdf->Row(array($temporaryArray[0][$i],$temporaryArray[1][$i]));
+    }
+    $pdf->SetWidths(array(0,0));
+
+    $pdf->Ln(15);
+    $pdf->SetFont('Arial','B',12); 
+    $pdf->Write(5 ,"Lisaks vajan tootmiseks/teenuse osutamiseks ..."); 
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln(10);
+    // tabel lõpp
+
+    // tabel
+    $pdf->SetWidths(array(100,40,40));
+    $temporaryArray = cellForEachStringTriple($business_action_2_1,$business_action_2_2,$business_action_2_3);
+    $pdf->Row(array("Ruum, vahend või seade, mida vaja ...","Maksumus","Saan võtta kasutusele"));
+    for ($i=0; $i < sizeof($temporaryArray[0]); $i++) { 
+        $pdf->Row(array($temporaryArray[0][$i],$temporaryArray[1][$i],$temporaryArray[2][$i]));
+    }
+    $pdf->SetWidths(array(0,0));
+    $pdf->Ln(15);
+    // tabel lõpp
+
+    $pdf->SetFont('Arial','B',12); 
+    $pdf->Write(5 ,"Ettevõtte käivitan ... vormis"); 
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln(10);
+    $pdf->Write(7,$business_action_3_1);
+    $pdf->Ln(15);
+
+    $pdf->SetFont('Arial','B',12); 
+    $pdf->Write(5 ,"Loetlen üles oma toote ja teenuse pakkumiseks vajaminevad tegevusload, litsentsid, sertifikaadid, kooskõlastused. "); 
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln(10);
+    $pdf->Write(7,$business_action_4_1);
+    $pdf->Ln(15);
+
+    $pdf->SetFont('Arial','B',12); 
+    $pdf->Write(5 ,"Minu esimene müügitehing toimub"); 
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln(10);
+    $pdf->Write(7,$business_action_5_1);
+    $pdf->Ln(15);
 
     // MINU TOOTMINE, TEENUSE PAKKUMINE JA TARNE    
     $pdf->AddPage();
@@ -580,11 +730,45 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(15);
 
     // ARVELDAMINE
-    $pdf->MultiCell("$cellwidth","5", "business_settlement_1_1: ". $business_settlement_1_1, "B", 2, "L");
-    $pdf->MultiCell("$cellwidth","5", "business_settlement_1_2: ". $business_settlement_1_2, "B", 2, "L");
-    $pdf->MultiCell("$cellwidth","5", "business_settlement_1_3: ". $business_settlement_1_3, "B", 2, "L");
-    $pdf->MultiCell("$cellwidth","5", "business_settlement_2_1: ". $business_settlement_2_1, "B", 2, "L");
-    $pdf->MultiCell("$cellwidth","5", "business_settlement_2_2: ". $business_settlement_2_2, "B", 2, "L");
+
+    $pdf->AddPage();
+
+    $pdf->SetFont('Arial','B',15);
+    $pdf->Cell("0","10", "Arveldamine", 0, 2, "C");
+    $pdf->Ln(10);
+
+    $pdf->SetFont('Arial','B',12); 
+    $pdf->Write(5 ,"Millistel maksetingimustel ostan enda tooraineid ja tellin teenuseid?"); 
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln(10);
+
+    // tabel
+    $pdf->SetWidths(array(100,40,40));
+    $temporaryArray = cellForEachStringTriple($business_action_2_1,$business_action_2_2,$business_action_2_3);
+    $pdf->Row(array("Hangitav toode või teenus","Tarnija","Makseviis ja -tähtaeg"));
+    for ($i=0; $i < sizeof($temporaryArray[0]); $i++) { 
+        $pdf->Row(array($temporaryArray[0][$i],$temporaryArray[1][$i],$temporaryArray[2][$i]));
+    }
+    $pdf->SetWidths(array(0,0));
+    $pdf->Ln(15);
+    // tabel lõpp
+
+    $pdf->Ln(15);
+    $pdf->SetFont('Arial','B',12); 
+    $pdf->Write(5 ,"Kuidas klient mulle maksab talle müüdud toote või teenuse eest?"); 
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln(10);
+
+    // tabel
+    $pdf->SetWidths(array(130,50));
+    $temporaryArray = cellForEachStringDouble($business_action_1_1,$business_action_1_2);
+    $pdf->Row(array("Klient","Makseviis ja -tähtaeg"));
+    for ($i=0; $i < sizeof($temporaryArray[0]); $i++) { 
+        $pdf->Row(array($temporaryArray[0][$i],$temporaryArray[1][$i]));
+    }
+    $pdf->SetWidths(array(0,0));
+    // tabel lõpp
+
     // MINU PLAAN B
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',15);
@@ -603,12 +787,25 @@ if (isset($_POST['next_btn_cv'])){
 }
 
 
-// teksti lahtri suurendamine
+// komaga eraldada palutud sisendite slicimine
+    function cellForEachStringTriple($input1,$input2,$input3){ // kolmene tabel
+        $dataArray = array();
+        $separatedInputs1 = explode(",",$input1);
+        array_push($dataArray,$separatedInputs1);
+        $separatedInputs2 = explode(",",$input2);
+        array_push($dataArray,$separatedInputs2);
+        $separatedInputs3 = explode(",",$input3);
+        array_push($dataArray,$separatedInputs3);
+        return $dataArray; 
+    }
 
-function cellForEachString($input){
-
-    $separatedInputs = explode(",",$input);
-    // not done
-}
+    function cellForEachStringDouble($input1,$input2){ // kahene tabel
+        $dataArray = array();
+        $separatedInputs1 = explode(",",$input1);
+        array_push($dataArray,$separatedInputs1);
+        $separatedInputs2 = explode(",",$input2);
+        array_push($dataArray,$separatedInputs2);        
+        return $dataArray; 
+    }
 
 ?>
