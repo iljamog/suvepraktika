@@ -217,3 +217,10 @@ li.nav-item {
 .custom-file-input:lang(en) ~ .custom-file-label::after {
   content: "Sirvi";
 }
+
+#cv_photo { 
+  max-width:270px;
+  max-height:330px;
+  height: auto;
+  width:auto;
+}
