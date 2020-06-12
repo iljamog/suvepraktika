@@ -85,9 +85,7 @@ div {
 }
 
 .vertical-menu {
-  padding-left: 220px;
   width: 200px;
-  display: block;
 }
 
 .vertical-menu a {
@@ -218,9 +216,9 @@ li.nav-item {
   content: "Sirvi";
 }
 
-#cv_photo { 
-  max-width:270px;
-  max-height:330px;
+#cv_photo {
+  max-width: 270px;
+  max-height: 330px;
   height: auto;
-  width:auto;
+  width: auto;
 }
