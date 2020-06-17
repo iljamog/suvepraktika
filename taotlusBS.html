@@ -117,7 +117,7 @@
       </nav>
     </div>
     <div class="container box mt-3">
-      <form method="post" id="register_form" action="pdfmaker.php">
+      <form method="post" id="register_form" > <!-- action="pdfmaker.php" -->
         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
           <li class="nav-item menu">
             <a
@@ -164,6 +164,9 @@
           <div class="tab-pane container active" id="data">
             <div class="panel panel-default">
               <div class="panel-body">
+                <div id="errorMessages">
+                  
+                </div>
                 <div class="form-group">
                   <label>
                     Eesnimi
@@ -372,7 +375,7 @@
                   </div>
                   <div class="collapse" id="collapse2">
                     <div class="card card-body">
-                      <label><h4>Loodava ettevõtte nimi</h4></label> <br />
+                      <label for="business_name"><h4>Loodava ettevõtte nimi</h4></label> <br />
                       <input
                         type="text"
                         name="business_name"
@@ -594,20 +597,19 @@
                         rows="3"
                         form="register_form"
                       ></textarea>
-                      <label>
                       
                       <br />
                       <label>
                         Minu toote ja / või teenuse EMTAK kood ja tegevusala on
-                        (otsin ja valin nimekirjast) <br />
+                        (otsin ja valin nimekirjast) </label><br />
                         <a
                           href="https://emtak.rik.ee/EMTAK/pages/klassifikaatorOtsing.jspx"
                           target="_blank"
                           style="font-size: 30px;"
                         >
                           Leia siit
-                        </a>
-                      </label>
+                        </a> <br>
+                      
                       <textarea
                         class="form-control"
                         id="business_product_3"
@@ -825,10 +827,10 @@
                       <h3>TEGEVUSE KÄIVITAMISE KAVA</h3>
                       <br />
 
-                      <p>
+                      <label>
                         Tootmiseks või teenuse osutamiseks on mul praeguseks
                         olemas ...
-                      </p>                      
+                      </label>                      
 
                       <p style="color: darkgray;">
                         <i>
@@ -863,7 +865,7 @@
                       </div>
 
                       <br><br>
-                      <p>Lisaks vajan tootmiseks/teenuse osutamiseks ...</p>
+                      <label>Lisaks vajan tootmiseks/teenuse osutamiseks ...</label>
                       <br>
                       <p style="color: darkgray;">
                         <i>
@@ -1180,7 +1182,7 @@
 
                       <br>
                       <label
-                        >Minu toote ja / või teenuse lõplik müügihind lõppkliendi jaoks on
+                        >Millistel maksetingimustel ostan enda tooraineid ja tellin teenuseid?
                       </label>
                       <br>
                       <p style="color: darkgray;">
