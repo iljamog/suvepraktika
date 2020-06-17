@@ -159,6 +159,16 @@
               >CV</a
             >
           </li>
+          <li class="nav-item menu"> <!-- and class d-none to hide -->
+            <a
+              class="nav-link"
+              id="result-tab"
+              data-toggle="tab"
+              href="#result"
+              role="tab"
+              >Done</a
+            >
+          </li>
         </ul>
         <div class="tab-content" id="myTabContent" style="margin-top: 16px;">
           <div class="tab-pane container active" id="data">
@@ -1511,6 +1521,47 @@
                   </button>
                 </div>
                 <br />
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="result" role="tabpanel">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="d-md-flex h-md-100 align-items-center">
+
+                  <!-- First Half -->
+                  
+                  <div class="col-md-6 p-0 bg-indigo h-md-100">
+                      <div class="text-black d-md-flex align-items-center h-100 p-2 text-center justify-content-end">
+                          <div class="logoarea pt-5 pb-5">
+                            <svg class="bi bi-check-circle-fill" width="100%" height="100%" viewBox="0 0 16 16" fill="green" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/> </svg>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- Second Half -->
+                  
+                  <div class="col-md-6 p-0 bg-white h-md-100 loginarea">
+                      <div class="d-md-flex align-items-center h-md-100 p-2 justify-content-start">
+                          <h2 class="text-center font-weight-bold">Taotlus esitatud! <br /><br /> 
+                            <button
+                            type="button"
+                            name="next_btn_data"
+                            id="next_btn_data"
+                            class="btn btn-info nextbutton"
+                          >
+                            PDF
+                            
+                              <path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z"/>
+                              <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z"/>
+                            </svg>
+                          </button>
+                          </h2>
+                          <br />
+                      </div>
+                  </div>
+                      
+                </div>
               </div>
             </div>
           </div>
