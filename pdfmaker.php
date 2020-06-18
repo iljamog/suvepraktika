@@ -236,6 +236,7 @@ if (isset($_POST['next_btn_cv'])){
     $postIndex = $_POST['postalcode'];
     // ÄRIPLAAN
     $business_name = $_POST['business_name'];
+    $business_date = $_POST['business_date'];
     $business_idea = $_POST['business_idea'];
     // KES MA OLEN JA MIDA OLEN TÄNASEKS TEINUD?
     $business_personal_1 = $_POST['business_personal_1'];
@@ -250,10 +251,11 @@ if (isset($_POST['next_btn_cv'])){
     $business_client_3 = $_POST['business_client_3'];
     $business_client_4 = $_POST['business_client_4'];
     $business_client_5 = $_POST['business_client_5'];
+    $business_client_6 = $_POST['business_client_6'];
     // MINU TOODE JA / VÕI TEENUS
     $business_product_1 = $_POST['business_product_1'];
     $business_product_2 = $_POST['business_product_2'];
-    $business_product_3 = $_POST['business_product_3'];
+
     // MINU KONKURENDID
     $business_competitor_1 = $_POST['business_competitor_1'];
     $business_competitor_2 = $_POST['business_competitor_2'];
@@ -356,21 +358,21 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(10);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Cell(50 ,"10", "Kirjeldan oma senist kogemust. Mida olen varem teinud oma loodava äri vallas? ", "", 2, "L");
+    $pdf->Cell(50 ,"10", "Kirjeldan oma senist kogemust. Mida olen varem teinud oma loodava äri vallas?", "", 2, "L");
     $pdf->Ln(1);
     $pdf->SetFont('Arial','',12);
     $pdf->Write(7,$business_personal_1);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Cell(50 ,"10", "Kuidas minu haridus, täiendõpe ja teadmised toetavad äri käivitamist? ", "", 2, "L");
+    $pdf->Cell(50 ,"10", "Kuidas minu haridus, täiendõpe, teadmised ja eelnev töökogemus toetavad äri käivitamist?", "", 2, "L");
     $pdf->Ln(3);
     $pdf->SetFont('Arial','',12);
     $pdf->Write(7,$business_personal_2);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Cell(50 ,"10", "Minu 3-4 isikuomadust, mis aitavad mul äri teha:", "", 2, "L");
+    $pdf->Cell(50 ,"10", "Minu 3-4 isikuomadust, mis aitavad mul äri teha", "", 2, "L");
     $pdf->Ln(3);
     $pdf->SetFont('Arial','',12);
     $pdf->Write(7,$business_personal_3);
@@ -384,14 +386,14 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Äri alustamiseks olen julge ja valmis aktiivselt suhtlema, et oma äri turundada ja müüa. Toon näiteid oma õnnestumistest."); 
+    $pdf->Write(5 ,"Äris hakkama saamiseks olen valmis toime tulema raskustega. Toon näiteid oma ebaõnnestumistest ja kuidas olen neist õppinud ja edasi liikunud."); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_personal_5);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Mul on selles äris alustamiseks täna olemas eeldused: (nt. kontaktid, eeltöö) "); 
+    $pdf->Write(5 ,"Mul on selles äris alustamiseks täna olemas eeldused (nt kontaktid, eeltöö)"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_personal_6);
@@ -404,111 +406,111 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(10);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Kirjeldan enda tüüpilist klienti"); 
+    $pdf->Write(5 ,"Kirjeldan enda tüüpilist klienti:"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_client_1);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Tunnen oma klienti, sest tänaseks olen teinud järgmisi tegevusi (nt. kõned, kohtumised, eelkokkulepped, proovitööd, ...) ja jõudnud ... (arv) kliendini:"); 
+    $pdf->Write(5 ,"Tunnen oma klienti, sest tänaseks olen teinud järgmisi tegevusi (nt. kõned, kohtumised, eelkokkulepped ja nendega kaetud potentsiaalne müük, proovitööd) ja jõudnud … (arv) kliendini:"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_client_2);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Klient vajab minu teenust või toodet sellepärast, et "); 
+    $pdf->Write(5 ,"Tean, milline on olukord ja trendid selles valdkonnas: (kirjeldan taustainfot ja / või uuringuid)"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_client_3);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Kuidas minu klient praegu enda vajadust katab või probleemi lahendab?"); 
+    $pdf->Write(5 ,"Klient vajab minu teenust või toodet sellepärast, et:"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_client_4);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Esimesel tegevusaastal saab mul olema ... (arv) klienti, sest ... (põhjendus)"); 
+    $pdf->Write(5 ,"Kuidas minu klient praegu enda vajadust katab või probleemi lahendab: (sh mille järgi valib tooteid või teenuseosutajat)"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_client_5);
+    $pdf->Ln(15);
+
+    $pdf->SetFont('Arial','B',12); 
+    $pdf->Write(5 ,"Esimesel tegevusaastal saab mul olema … (arv) klienti, sest … (põhjendus)"); 
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln(10);
+    $pdf->Write(7,$business_client_6);
     $pdf->Ln(15);
 
 
     // MINU TOODE JA / VÕI TEENUS
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',15);
-    $pdf->Cell("0","10", "MINU KLIENT", 0, 2, "C");
+    $pdf->Cell("0","10", "MINU TOODE JA / VÕI TEENUS", 0, 2, "C");
     $pdf->Ln(10);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Minu toode ja / või teenus on:"); 
+    $pdf->Write(5 ,"Minu tooted ja / või teenused on:"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_product_1);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Minu toode ja / või teenus on selline.\nKirjeldan või lisan foto toote näidisest või analoogist (võimalusel)"); 
+    $pdf->Write(5 ,"Minu toote ja / või teenuse EMTAK kood ja tegevusala nimetus on:"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_product_2);
     $pdf->Ln(15);
 
-    $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Minu toote ja / või teenuse EMTAK kood ja tegevusala on"); 
-    $pdf->SetFont('Arial','',12);
-    $pdf->Ln(10);
-    $pdf->Write(7,$business_product_3);
-    $pdf->Ln(15);
-    
     // MINU KONKURENDID
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',15);
-    $pdf->Cell("0","10", "MINU KLIENT", 0, 2, "C");
+    $pdf->Cell("0","10", "MINU KONKURENDID", 0, 2, "C");
     $pdf->Ln(10);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Ca 3 otsest konkurenti, kellega ma saan ennast võrrelda on ..., nende majandusnäitajad on:"); 
+    $pdf->Write(5 ,"Umbes 3 otsest konkurenti, kellega ma saan ennast võrrelda, on ... , nende majandusnäitajad on: "); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_competitor_1);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Miks just need on minu kõige olulisemad konkurendid?"); 
+    $pdf->Write(5 ,"Miks just nemad on minu kõige olulisemad konkurendid?"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_competitor_2);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Minu konkurentide tugevused on... Ma võiksin neilt õppida kuidas"); 
+    $pdf->Write(5 ,"Minu konkurentide tugevused on... Ma võiksin neilt õppida, kuidas…"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_competitor_3);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Mina olen konkurentidest parem sellepärast, et"); 
+    $pdf->Write(5 ,"Minu tugevused konkurentide ees on:"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_competitor_4);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Minu toode ja / või teenus on konkurentidega võrreldav ja neist eristuv sellepärast, et "); 
+    $pdf->Write(5 ,"Minu toode ja / või teenus on konkurentidega võrreldav ja neist eristuv sellepärast, et…"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_competitor_5);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Kuna mul otseseid konkurente ei ole, siis kirjeldan asendustooteid või kaudseid konkurente"); 
+    $pdf->Write(5 ,"Kirjeldan asendustooteid või kaudseid konkurente "); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_competitor_6);
@@ -521,35 +523,35 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(10);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Kus minu tüüpiline klient asub?"); 
+    $pdf->Write(5 ,"Millisest kohast ostab klient sarnaseid tooteid ja / või teenuseid praegu?"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_marketing_1);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Millisest kohast ostab klient sarnaseid tooteid ja / või teenuseid praegu ja kus mina hakkan müüma?"); 
+    $pdf->Write(5 ,"Kus mina hakkan müüma või teenust osutama?"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_marketing_2);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Saan oma tooteid ja teenuseid potentsiaalse kliendi jaoks nähtavaks teha järgmiste tegevustega"); 
+    $pdf->Write(5 ,"Minu kliendid otsivad ja saavad informatsiooni minu valdkonna kohta praegu … kanalitest … märksõnade abil"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_marketing_3);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Äri käivitamisel (nt. esimesed ... kuud) on minu eelarve ja ajakava nende turundustegevuste elluviimiseks "); 
+    $pdf->Write(5 ,"Mina saan oma tooteid ja teenuseid potentsiaalse kliendi jaoks nähtavaks teha selliste tegevustega:"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_marketing_4);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Peale äri käivitamist (nt. alates ... kuust) on minu põhilised turundustegevused ja igakuine eelarve turundusele"); 
+    $pdf->Write(5 ,"Äri käivitamisel (nt esimesed … kuud) on minu kava nende turundustegevuste elluviimiseks"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_marketing_5);
