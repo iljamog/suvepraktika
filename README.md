@@ -29,4 +29,4 @@
 <p>Gleb Stepanov</p>
 
 <h2>Paigaldusjuhised</h2>
-<p>Kopeerida failid oma serveri HTML kausta, eraldi konfigureerimist ei ole vaja.</p>
+<p>Eelnevalt on vaja veebiserverit, kus oleks PHP paigaldatud. Kui see on olemas, tuleks kopeerida failid oma serveri HTML kausta, eraldi konfigureerimist ei ole vaja.</p>
