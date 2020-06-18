@@ -56,7 +56,7 @@ $(function() { // lühiversioon document.ready funktsioonist
       $(this).unbind('submit');  
 
       // äriplaani osa väljad 
-      var allInputs = $("#collapse2 :input");
+      var allInputs = $("#collapse2 :input"); //  Valib kõik inputid - textarea, radio, checked ...
       var allLabels = $("#collapse2 label");
 
       // kasutatud set, sest 1 labeli all võib olla mitu input välja
@@ -107,6 +107,7 @@ $(function() { // lühiversioon document.ready funktsioonist
         errorMessageArray.forEach(element => {
           var message = $("<li></li>").text(element);
           $("#errorMessages").append(message);
+          $("#data-tab").trigger("click");
         });
 
       }

@@ -1,8 +1,11 @@
 <?php
 require_once("fpdf/fpdf.php");
 
-// Klass, mis võimaldab erisümboleid ja Eesti tähti.
+// lisatud funktsioonid, mis võimaldavad kasutada erisümboleid ja Eesti tähti.
 // Saadud https://gist.github.com/gale93/78306ec438698032de747f4d99604419
+
+// lisatud funktsioonid, mis aitavad tekstimahutamisega
+// saadud http://www.fpdf.org/?go=script&id=3
 
 class TextNormalizerFPDF extends FPDF{
 	function __construct()
@@ -788,24 +791,24 @@ if (isset($_POST['next_btn_cv'])){
 
 
 // komaga eraldada palutud sisendite slicimine
-    function cellForEachStringTriple($input1,$input2,$input3){ // kolmene tabel
-        $dataArray = array();
-        $separatedInputs1 = explode(",",$input1);
-        array_push($dataArray,$separatedInputs1);
-        $separatedInputs2 = explode(",",$input2);
-        array_push($dataArray,$separatedInputs2);
-        $separatedInputs3 = explode(",",$input3);
-        array_push($dataArray,$separatedInputs3);
-        return $dataArray; 
-    }
+function cellForEachStringTriple($input1,$input2,$input3){ // kolmene tabel
+    $dataArray = array();
+    $separatedInputs1 = explode(",",$input1);
+    array_push($dataArray,$separatedInputs1);
+    $separatedInputs2 = explode(",",$input2);
+    array_push($dataArray,$separatedInputs2);
+    $separatedInputs3 = explode(",",$input3);
+    array_push($dataArray,$separatedInputs3);
+    return $dataArray; 
+}
 
-    function cellForEachStringDouble($input1,$input2){ // kahene tabel
-        $dataArray = array();
-        $separatedInputs1 = explode(",",$input1);
-        array_push($dataArray,$separatedInputs1);
-        $separatedInputs2 = explode(",",$input2);
-        array_push($dataArray,$separatedInputs2);        
-        return $dataArray; 
-    }
+function cellForEachStringDouble($input1,$input2){ // kahene tabel
+    $dataArray = array();
+    $separatedInputs1 = explode(",",$input1);
+    array_push($dataArray,$separatedInputs1);
+    $separatedInputs2 = explode(",",$input2);
+    array_push($dataArray,$separatedInputs2);        
+    return $dataArray; 
+}
 
 ?>
