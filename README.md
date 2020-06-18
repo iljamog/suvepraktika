@@ -1,5 +1,7 @@
 <h1 align="center">Töötukassa EVAT Taotlus</h1>
+<p align="center">
 <img align="center" src="/img/tootukassa.png">
+</p>
 
 <h2>Ekraanitõmmis</h2>
 
