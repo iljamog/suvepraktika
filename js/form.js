@@ -115,11 +115,7 @@ $(function() { // lühiversioon document.ready funktsioonist
   }); // Avalduse submit lõpp
 }); // Avalduse submit lõpp
 
-// äriplaanile kuupäeva saamine
-n =  new Date();
-y = n.getFullYear();
-m = n.getMonth() + 1;
-d = n.getDate();
-document.getElementById("business_date").innerHTML ="Koostamise kuu ja aasta: " + m + "/" + y;
-
-
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
