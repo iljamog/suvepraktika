@@ -235,3 +235,7 @@ li.nav-item {
   height: auto;
   width: auto;
 }
+
+.table-sortable tbody tr {
+  cursor: move;
+}
