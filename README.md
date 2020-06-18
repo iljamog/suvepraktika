@@ -7,7 +7,7 @@
 <p>Eesmärgiks oli täiendada Eesti Töötukassa taotluse vormi. Meie peamiseks ülesandeks oli luua kasutajasõbralik ja interaktiivne äriplaani ja finantsprognoosi sisestamise ja esitamise vorm, et asendada Word ja Excel. Tegime äriplaani täitmise vormi, kuid säilitasime võimaluse üleslaadida seda ka failina.</p>
 
 <h2>Instituut</h2>
-<p>Töö sai tehtud Tallinna Ülikooli suveprojekti raames</p>
+<p>Töö sai tehtud Tallinna Ülikooli suveprojekti raames.</p>
 <img src="https://www.tlu.ee/sites/default/files/TUKO/%C3%9Clikoolo%20logo/TLU-logo-pilt.gif">
 
 <h2>Kasutatud tehnoloogiad</h2>
@@ -27,7 +27,4 @@
 <p>Gleb Stepanov</p>
 
 <h2>Paigaldusjuhised</h2>
-<p>Kopeerida failid oma serveri HTML kausta, eraldi konfigureerimist ei ole vaja</p>
-
-<h2>Litsents<h2>
-<img src="https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT")>
+<p>Kopeerida failid oma serveri HTML kausta, eraldi konfigureerimist ei ole vaja.</p>
