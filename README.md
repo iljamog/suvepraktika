@@ -30,4 +30,4 @@
 <p>Kopeerida failid oma serveri HTML kausta, eraldi konfigureerimist ei ole vaja</p>
 
 <h2>Litsents<h2>
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<img src="https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT")>
