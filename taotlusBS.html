@@ -159,7 +159,7 @@
               >CV</a
             >
           </li>
-          <li class="nav-item menu d-none"> <!-- and class d-none to hide -->
+          <li class="nav-item menu"> <!-- and class d-none to hide -->
             <a
               class="nav-link"
               id="result-tab"
@@ -559,7 +559,7 @@
 
                             <label>
                               Tunnen oma klienti, sest tänaseks olen teinud järgmisi tegevusi (nt. kõned, kohtumised, 
-                              eelkokkulepped ja nendega kaetud potentsiaalne müük, proovitööd) ja jõudnud … (arv) kliendini                              
+                              eelkokkulepped ja nendega kaetud potentsiaalne müük, proovitööd) ja jõudnud ... (arv) kliendini                              
                             </label>
                             <textarea
                               class="form-control"
@@ -611,8 +611,8 @@
                             ></textarea>
                             <br />
                             <label>
-                              Esimesel tegevusaastal saab mul olema … (arv) klienti
-                              sest … (põhjendus)
+                              Esimesel tegevusaastal saab mul olema ... (arv) klienti
+                              sest ... (põhjendus)
                             </label>
                             <textarea
                               class="form-control"
@@ -642,6 +642,10 @@
                               või analoogist. Kui plaanin lähitulevikus toodet/teenust arendada, siis kirjutan sellest 
                               (mida, kuidas, millal, jne).) 
                             </label>
+                            <div class="input-group mb-3">
+                              <input type="file" accept="image/*" />
+                              <label class="custom-file-label" for="inputGroupFile01">Lisa fail</label> <br />
+                            </div>
                             <textarea
                               class="form-control"
                               id="business_product_1"
@@ -649,48 +653,35 @@
                               class="text"
                               rows="3"
                               form="register_form"
-                          ></textarea>
-                        <label><br />
-                          Minu toode ja / või teenus on selline. Kirjeldan või
-                          lisan foto toote näidisest või analoogist (võimalusel)
-                        </label>
-                        <div class="input-group mb-3">
-                          <input type="file" accept="image/*" />
-                          <label class="custom-file-label" for="inputGroupFile01">Lisa fail</label> <br />
-                        </div>
-                          <textarea
-                          class="form-control"
-                          id="business_product_2"
-                          name="business_product_2"
-                          class="text"
-                          rows="3"
-                          form="register_form"
-                        ></textarea>
+                            ></textarea>
+                            <br />
+
+                            <label>
+                              Minu toote ja / või teenuse EMTAK kood ja tegevusala nimetus on (otsin ja valin nimekirjast, 
+                              mis asub Registrite ja Infosüsteemide Keskuse veebilehel) 
+                            </label>
+                              <br />
+                              <a
+                                href="https://emtak.rik.ee/EMTAK/pages/klassifikaatorOtsing.jspx"
+                                target="_blank"
+                                style="font-size: 30px;"
+                              >
+                                Leia siit
+                              </a>
+                              <br>
                         
-                        <br />
-                        <label>
-                          Minu toote ja / või teenuse EMTAK kood ja tegevusala on
-                          (otsin ja valin nimekirjast) </label><br />
-                          <a
-                            href="https://emtak.rik.ee/EMTAK/pages/klassifikaatorOtsing.jspx"
-                            target="_blank"
-                            style="font-size: 30px;"
-                          >
-                            Leia siit
-                          </a> <br>
-                        
-                        <textarea
-                          class="form-control"
-                          id="business_product_3"
-                          name="business_product_3"
-                          class="text"
-                          rows="2"
-                          form="register_form"
-                        ></textarea>
+                              <textarea
+                                class="form-control"
+                                id="business_product_2"
+                                name="business_product_2"
+                                class="text"
+                                rows="2"
+                                form="register_form"
+                              ></textarea>
                           </div>
                         </div>
 
-                         <!-- Card header -->
+                        <!-- Card header -->
                         <div class="card-header" role="tab" id="headingFive5">
                           <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseFive5"
                             aria-expanded="false" aria-controls="collapseThree3">
@@ -704,10 +695,9 @@
                         <div id="collapseFive5" class="collapse" role="tabpanel" aria-labelledby="headingFive5" data-parent="#accordionEx">
                           <div class="card-body">
                             <label>
-                              Ca 3 otsest konkurenti kellega ma saan ennast võrrelda
-                              on … <br />
-                              nende majandusnäitajad on: … (töötajate arv müügitulu
-                              turul tegutsemise aeg)
+                              Umbes 3 otsest konkurenti, kellega ma saan ennast võrrelda, on ... 
+                              (nimi, asukoht/tegevuspiirkond, veebilehe aadress, tooted/teenused), 
+                              nende majandusnäitajad on: ... (töötajate arv, müügitulu, turul tegutsemise aeg, ...)
                             </label>
                             <textarea
                               class="form-control"
@@ -718,8 +708,10 @@
                               form="register_form"
                             ></textarea>
                             <br />
+
                             <label>
-                              Miks just need on minu kõige olulisemad konkurendid?
+                              Miks just nemad on minu kõige olulisemad konkurendid? (kirjeldan, mille alusel 
+                              konkurendid valisin – nt tegevuspiirkond, sarnane hinnaklass, sarnane sihtgrupp …)
                             </label>
                             <textarea
                               class="form-control"
@@ -730,9 +722,10 @@
                               form="register_form"
                             ></textarea>
                             <br />
+
                             <label>
-                              Minu konkurentide tugevused on... Ma võiksin neilt
-                              õppida kuidas (loetlen kuni 3)
+                              Minu konkurentide tugevused on... Ma võiksin neilt õppida, kuidas… 
+                              (loetlen kuni 3 tegevust)
                             </label>
                             <textarea
                               class="form-control"
@@ -744,8 +737,7 @@
                             ></textarea>
                             <br />
                             <label>
-                              Mina olen konkurentidest parem sellepärast et ...
-                              (loetlen kuni 3)
+                              Minu tugevused konkurentide ees on … (loetlen kuni 3)
                             </label>
                             <textarea
                               class="form-control"
@@ -757,16 +749,17 @@
                             ></textarea>
                             <br />
                             <label>
-                              Minu toode ja / või teenus on konkurentidega võrreldav
-                              ja neist eristuv sellepärast et ...
+                              Minu toode ja / või teenus on konkurentidega võrreldav ja neist eristuv sellepärast, et…
                             </label>
                             <p style="color: darkgray;">
-                                <li> Kui mul otsekonkurente pole kirjeldan asendustooteid
+                              <li> 
+                                Kui mul otsekonkurente pole kirjeldan asendustooteid
                                 või kaudseid konkurente. Näiteks raamatute
                                 asendustooteks on ajakirjad või blogid. Laste mängutoa
                                 kaudseteks konkurentideks on kino televisioon
                                 suvelaager või vanavanemad. Need kõik pakuvad
-                                võimalust vaba aja veetmiseks. </li>
+                                võimalust vaba aja veetmiseks. 
+                              </li>
                             </p>
                             <textarea
                               class="form-control"
@@ -778,8 +771,7 @@
                             ></textarea>
                             <br />
                             <label
-                              >Kuna mul otseseid konkurente ei ole siis kirjeldan
-                              asendustooteid või kaudseid konkurente
+                              >Kirjeldan asendustooteid või kaudseid konkurente 
                             </label>
                             <textarea
                               class="form-control"
@@ -792,7 +784,7 @@
                           </div>
                         </div>
 
-                         <!-- Card header -->
+                        <!-- Card header -->
                         <div class="card-header" role="tab" id="headingSix6">
                           <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseSix6"
                             aria-expanded="false" aria-controls="collapseThree3">
@@ -815,7 +807,10 @@
                               </li>
                             </p>
                             <br />
-                            <label>Kus minu tüüpiline klient asub? </label>
+
+                            <label>
+                              Millisest kohast ostab klient sarnaseid tooteid ja / või teenuseid praegu?
+                            </label>
                             <textarea
                               class="form-control"
                               id="business_marketing_1"
@@ -825,9 +820,10 @@
                               form="register_form"
                             ></textarea>
                             <br />
+
                             <label
-                              >Millisest kohast ostab klient sarnaseid tooteid ja /
-                              või teenuseid praegu ja kus mina hakkan müüma?</label
+                              >Kus mina hakkan müüma või teenust osutama?
+                            </label
                             >
                             <textarea
                               class="form-control"
@@ -872,8 +868,9 @@
                             <br />
     
                             <label
-                              >Saan oma tooteid ja teenuseid potentsiaalse kliendi
-                              jaoks nähtavaks teha järgmiste tegevustega</label
+                              >Minu kliendid otsivad ja saavad informatsiooni minu valdkonna kohta praegu … 
+                              kanalitest … märksõnade abil
+                            </label
                             >
                             <textarea
                               class="form-control"
@@ -884,9 +881,9 @@
                               form="register_form"
                             ></textarea>
                             <br />
+
                             <label
-                              >Äri käivitamisel (nt. esimesed … kuud) on minu eelarve
-                              ja ajakava nende turundustegevuste elluviimiseks
+                              >Mina saan oma tooteid ja teenuseid potentsiaalse kliendi jaoks nähtavaks teha selliste tegevustega
                             </label>
                             <textarea
                               class="form-control"
@@ -897,6 +894,7 @@
                               form="register_form"
                             ></textarea>
                             <br />
+
                             <label
                               >Peale äri käivitamist (nt. alates ... kuust) on minu
                               põhilised turundustegevused ja igakuine eelarve
@@ -929,8 +927,9 @@
                         <div id="collapseSeven7" class="collapse" role="tabpanel" aria-labelledby="headingSeven7" data-parent="#accordionEx">
                           <div class="card-body">
                             <label>
-                              Tootmiseks või teenuse osutamiseks on mul praeguseks
-                              olemas ...
+                              Minu äri tegevuskoht on: (sh aadress, kelle omanduses, kasutusotstarve vastavalt 
+                              kinnistusraamatule, nõuetele vastavus – juhul kui vajab remonti, siis eelarve ja 
+                              ajakava, rendipinna alternatiivid jm)
                             </label>                      
     
                             <p style="color: darkgray;">
@@ -943,7 +942,7 @@
                             <div class="row">
                               <br /><br />
                               <div class="col-sm-6">
-                                Ruum vahend või seade mis on olemas …<textarea
+                                Ruum vahend või seade mis on olemas ...<textarea
                                   class="form-control"
                                   id="business_action_1_1"
                                   name="business_action_1_1"
@@ -954,7 +953,7 @@
                               </div>
     
                               <div class="col-sm-6">
-                                Saan võtta kasutusele (kohe või …)<textarea
+                                Saan võtta kasutusele (kohe või ...)<textarea
                                   class="form-control"
                                   id="business_action_1_2"
                                   name="business_action_1_2"
@@ -975,7 +974,7 @@
                             <div class="row">
                               <br /><br />
                               <div class="col-sm-5">
-                                Ruum, vahend või seade, mida vaja …<textarea
+                                Ruum, vahend või seade, mida vaja ...<textarea
                                   class="form-control"
                                   id="business_action_2_1"
                                   name="business_action_2_1"
@@ -1007,11 +1006,12 @@
                               </div>
                             </div>
                             <br>
+
                             <label
-                              >Ettevõtte käivitan … vormis (valin kas: osaühing, täisühing, 
-                              usaldusühing, tulundusühistu, FIE. Juhul kui mul on kaasosanikud, 
-                              siis nimetan nimed ning nende osa suuruse ...)</label
-                            >
+                              >Ettevõtte käivitan … vormis (valin kas: osaühing, täisühing, usaldusühing, 
+                              tulundusühistu, FIE. Juhul kui mul on kaasosanikud, siis nimetan nimed ning 
+                              nende osa suuruse ...)
+                            </label>
                             <textarea
                               class="form-control"
                               id="business_action_3_1"
@@ -1033,7 +1033,7 @@
                               class="text"
                               rows="3"
                               form="register_form"
-                              placeholder="Selle asjaajamise ajaline kestvus on … ja kulud on ..."
+                              placeholder="Selle asjaajamise ajaline kestvus on ... ja kulud on ..."
                             ></textarea>
                             <br />
                             <label
@@ -1086,11 +1086,10 @@
                             ></textarea>
                             <br />
     
-                            <label
-                              >Vajan toote valmistamiseks või teenuse pakkumiseks jooksvalt alljärgnevaid 
-                              toormaterjale (nende tarnijad, mahud, tarneajad, toorme laovaru, partnerid)
-                            </label
-                            >
+                            <label>
+                              Vajan toote valmistamiseks või teenuse osutamiseks jooksvalt alljärgnevaid toormaterjale 
+                              (nende tarnijad, mahud/kogused, tarneajad/-kulud, toorme laovaru, partnerid jm)
+                            </label>
                             <textarea
                               class="form-control"
                               id="business_production_2"
@@ -1102,7 +1101,7 @@
                             <br />
     
                             <label
-                              >Minu kõige olulisema toote valmistamiseks või teenuse pakkumiseks kuluv aeg on
+                              >Minu kõige olulisema toote valmistamiseks või teenuse osutamiseks kuluv aeg on
                             </label>
                             <textarea
                               class="form-control"
@@ -1115,7 +1114,8 @@
                             <br />
     
                             <label
-                              >Toodete ja / või teenuste pakkumiseks on mul vaja hoida oma laos varusid sellises koguses:
+                              >Toodete tootmiseks ja/või teenuste osutamiseks on mul vaja hoida oma 
+                              laos varusid sellises koguses
                             </label>
                             <textarea
                               class="form-control"
@@ -1128,8 +1128,8 @@
                             <br />
     
                             <label
-                              >Kuidas viin oma toote ja / või teenuse kliendini (partnerid, tarneaeg) 
-                              või kas kliendid tulevad minu juurde?
+                              >Kuidas klient minu toodet ja/või teenust ostab? 
+                              (etapid tellimusest toote/teenuse kättesaamiseni)
                             </label>
                             <textarea
                               class="form-control"
@@ -1140,18 +1140,7 @@
                               form="register_form"
                             ></textarea>
                             <br />
-    
-                            <label
-                              >Kuidas klient minu toodet ja / või teenust ostab
-                            </label>
-                            <textarea
-                              class="form-control"
-                              id="business_production_6"
-                              name="business_production_6"
-                              class="text"
-                              rows="3"
-                              form="register_form"
-                            ></textarea>
+
                           </div>
                         </div>
 
@@ -1169,10 +1158,15 @@
                         <div id="collapseNine9" class="collapse" role="tabpanel" aria-labelledby="headingNine9" data-parent="#accordionEx">
                           <div class="card-body">
                             <li>
-                              Ka alustaval ettevõtjal on ööpäevas 24 tundi ja nädalas 7 päeva. 
-                              Enda tegevuse realistlikuks hindamiseks mõtlen läbi, mida mul on 
-                              tarvis teha, kui palju need tegevused aega võtavad, kui palju ma 
-                              igapäevaselt äriga tegeleda saan ja kas mul on vaja abijõudu.
+                              Ka alustaval ettevõtjal on ööpäevas 24 tundi ja nädalas 7 päeva. Enda tegevuse 
+                              realistlikuks hindamiseks mõtlen läbi, mida mul on tarvis teha, kui palju need 
+                              tegevused aega võtavad, kui palju ma igapäevaselt äriga tegeleda saan ja kas 
+                              mul on vaja abijõudu. Palgakulude planeerimisel arvestan piirkonna ja valdkonna 
+                              keskmise palgaga ja minu ettevõtte võimalustega.
+                            </li>
+                            <li>
+                              Toon välja, kui palju aega läheb igakuiselt põhitegevusteks, kui palju juhtimiseks, 
+                              turunduseks, müügiks jms.
                             </li>
                             <br>
     
@@ -1191,7 +1185,7 @@
     
                             <label
                               >Äri tegemiseks vajan lisaks neid töötajaid või partnereid (kirjeldan igaühe 
-                              ülesandeid, eeldatavaid oskusi, ja kas see on püsiv või ajutine töötaja)
+                              ülesandeid, eeldatavaid oskusi ja kas see on püsiv või ajutine töötaja)
                             </label>
                             <textarea
                               class="form-control"
@@ -1204,7 +1198,8 @@
                             <br />
     
                             <label
-                              >Igakuised palgakulud endale ja töötajatele on (täpsustan mis summas ja mis ajal)
+                              >Igakuised palgakulud endale ja töötajatele on (täpsustan, mis summas ja 
+                              mis ajal, toon välja  valdkonna keskmise palga)
                             </label>
                             <textarea
                               class="form-control"
@@ -1217,7 +1212,7 @@
                             <br />
     
                             <label
-                              >Igakuised teenuste kulud koostööpartneritele ja teenuste pakkujatele 
+                              >Igakuised teenuste kulud koostööpartneritele ja teenusepakkujatele 
                               (nt raamatupidaja, IT tugi, ...)
                             </label>
                             <textarea
@@ -1229,6 +1224,7 @@
                               form="register_form"
                             ></textarea>
                             <br />
+
                           </div>
                         </div>
 
@@ -1246,71 +1242,72 @@
                         <div id="collapseTen10" class="collapse" role="tabpanel" aria-labelledby="headingTen10" data-parent="#accordionEx">
                           <div class="card-body">
                             <label
-                          >Minu 3 olulisemat konkurenti müüvad tooteid ja / või teenuseid järgmiste hindadega
-                        </label>
-                        <textarea
-                          class="form-control"
-                          id="business_pricing_1"
-                          name="business_pricing_1"
-                          class="text"
-                          rows="3"
-                          form="register_form"
-                        ></textarea>
-                        <br />
+                              >Minu 3 olulisema konkurendi  toodete ja/või teenuste  hinnad on järgmised
+                            </label>
+                            <textarea
+                              class="form-control"
+                              id="business_pricing_1"
+                              name="business_pricing_1"
+                              class="text"
+                              rows="3"
+                              form="register_form"
+                            ></textarea>
+                            <br />
 
-                        <li>
-                          Enda toote hinnastamisel arvestan kuludega, mis on seotud toote ja / või 
-                          teenuse valmistamise ja pakkumisega (toote pakend, personalikulud, turundus, 
-                          vahendid, tooraine, kaudsed kulud: ruumid, elekter, vesi, internet ...). 
-                          Müügihind ei saa olla väiksem omahinnast (vähemalt mitte pikaajaliselt).
-                        </li>
-                        <br>
-                        <label
-                          >Minu kõige olulisema toote või teenuse omahind ja selle arvutuskäik on 
-                        </label>
-                        <textarea
-                          class="form-control"
-                          id="business_pricing_2"
-                          name="business_pricing_2"
-                          class="text"
-                          rows="3"
-                          form="register_form"
-                        ></textarea>
-                        <br />
+                            <li>
+                              Toote hinnastamisel arvestan kuludega, mis on seotud toote ja/või teenuse valmistamise 
+                              ja pakkumisega (toote pakend, personalikulud, turundus, vahendid, tooraine, kaudsed 
+                              kulud: ruumid, elekter, vesi, internet jne). Müügihind ei saa olla väiksem omahinnast 
+                              (vähemalt mitte pikaajaliselt).
+                            </li>
+                            <br>
 
-                        <li>
-                          Juhul kui müün edasimüüjate (nt. kaupluste, e-kanalite) kaudu või agentide abil, 
-                          siis arvestan nende teenustasusid ja juurdehindlust vastavalt koostöötingimustele.
-                        </li>
-                        <br>
-                        <label
-                          >Edasimüüja teenustasu või juurdehindlus on
-                        </label>
-                        <textarea
-                          class="form-control"
-                          id="business_pricing_3"
-                          name="business_pricing_3"
-                          class="text"
-                          rows="3"
-                          form="register_form"
-                        ></textarea>
-                        <br />
-                        <li>
-                          Enne lõpliku müügihinna määramist veendun selles, et minu toote või teenuse müügihind on 
-                          realistlik. Lõplik müügihind peab olema ostja jaoks vastuvõetav ja võrreldav otseste konkurentidega.
-                        </li>
-                        <br>
-                        <label
-                          >Minu toote ja / või teenuse lõplik müügihind lõppkliendi jaoks on
-                        </label>
-                        <textarea
-                          class="form-control"
-                          id="business_pricing_4"
-                          name="business_pricing_4"
-                          class="text"
-                          rows="3"
-                          form="register_form"
-                        ></textarea>
+                            <label
+                              >Minu kõige olulisema toote või teenuse omahind ja selle arvutuskäik on
+                            </label>
+                            <textarea
+                              class="form-control"
+                              id="business_pricing_2"
+                              name="business_pricing_2"
+                              class="text"
+                              rows="3"
+                              form="register_form"
+                            ></textarea>
+                            <br />
+
+                            <label>
+                              Juhul kui müün edasimüüjate (nt kaupluste, e-kanalite) kaudu või agentide 
+                              abil, siis kirjeldan nende teenustasusid ja juurdehindlust, koguseid, osakaalu 
+                              müügist, tarnesagedust, maksetingimusi jm vastavalt koostöötingimustele.
+                            </label>
+                            <textarea
+                              class="form-control"
+                              id="business_pricing_2"
+                              name="business_pricing_2"
+                              class="text"
+                              rows="3"
+                              form="register_form"
+                            ></textarea>
+                            <br />
+
+                            <li>
+                              Enne lõpliku müügihinna määramist veendun selles, et minu toote 
+                              või teenuse müügihind on realistlik.
+                            </li>
+
+                            <label
+                              >Minu toote ja/või teenuse lõplik müügihind lõppkliendi jaoks on
+                            </label>
+                            <textarea
+                              class="form-control"
+                              id="business_pricing_3"
+                              name="business_pricing_3"
+                              class="text"
+                              rows="3"
+                              form="register_form"
+                            ></textarea>
+                            <br />
+                            
                           </div>
                         </div>
 
@@ -1326,30 +1323,7 @@
                         <!-- Card body -->
                         <div id="collapseEleven11" class="collapse" role="tabpanel" aria-labelledby="headingEleven11" data-parent="#accordionEx">
                           <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                            wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                            eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                            nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                            farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                            labore sustainable VHS.
-                          </div>
-                        </div>
-
-                        <div class="card-header" role="tab" id="headingTwelwe12">
-                          <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwelwe12"
-                            aria-expanded="false" aria-controls="collapseTwo2">
-                            <h5 class="mb-0">
-                              MINU PLAAN B<i class="fas fa-angle-down rotate-icon"></i>
-                            </h5>
-                          </a>
-                        </div>
-                    
-                        <!-- Card body -->
-                        <div id="collapseTwelwe12" class="collapse" role="tabpanel" aria-labelledby="headingTwelwe12" data-parent="#accordionEx">
-                          <div class="card-body">
-                            <li>
-                              <label
+                            <label
                               >Millistel maksetingimustel ostan enda tooraineid ja tellin teenuseid?
                             </label>
                             <p>
@@ -1428,9 +1402,37 @@
                               </div>
                             </div>
                             <br> <br>
-                            </li>
+                            
     
                             <br>
+                          </div>
+                        </div>
+
+                        <div class="card-header" role="tab" id="headingTwelwe12">
+                          <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwelwe12"
+                            aria-expanded="false" aria-controls="collapseTwo2">
+                            <h5 class="mb-0">
+                              MINU PLAAN B<i class="fas fa-angle-down rotate-icon"></i>
+                            </h5>
+                          </a>
+                        </div>
+                    
+                        <!-- Card body -->
+                        <div id="collapseTwelwe12" class="collapse" role="tabpanel" aria-labelledby="headingTwelwe12" data-parent="#accordionEx">
+                          <div class="card-body">
+                            <li>
+                              Äris võib ette tulla probleeme ja ootamatusi. Mõtlen läbi, kui suure tõenäosusega 
+                              midagi võib juhtuda ja mida teen juhul, kui mõni risk realiseerub.
+                            </li>
+                            <li>
+                              Näiteks mida teen siis, kui on probleemiks: maksejõuliste klientide leidmine ja 
+                              hoidmine, aja planeerimine, oma äri turundamine, minu enda või töötajate haigestumine, 
+                              eelkokkulepete tühistamine, rendipinna leidmine ja hoidmine, kooskõlastuste ja 
+                              tegevuslubade väljastamine, tarne- või likviidsusprobleemid, seadmete rikked, klientide 
+                              või tarnijate usaldusväärsus, turuolukorra muutumine jne.
+                            </li>
+                            <br>
+
                             <label
                               >Mis võib minu äris plaanitust teisiti minna ja mida ma siis teen
                             </label>
@@ -1442,6 +1444,7 @@
                               rows="5"
                               form="register_form"
                             ></textarea>
+
                           </div>
                         </div>
                       </div>
