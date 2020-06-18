@@ -19,7 +19,7 @@
 <li>Bootstrap 4.5</li>
 <li>PHP 7.4.3</li>
 <li>FPDF 1.82</li>
-<ul>
+</ul>
 
 <h2>Autorid</h2>
 <p>Marten Jürgens</p>
