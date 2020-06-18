@@ -260,13 +260,20 @@
             <div class="panel panel-default">
               <div class="panel-body">
                 <div class="form-group">
-                  <label>Testing</label>
-                  <input
-                    type="text"
-                    name="first_name"
-                    id="first_name"
-                    class="form-control"
-                  />
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      class="custom-file-input"
+                      id="finance_plan_file"
+                      aria-describedby="inputGroupFileAddon01"
+                      accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    />
+                    <label
+                      class="custom-file-label"
+                      for="inputGroupFile01"
+                      >Vali fail (.doc, .docx, .xml)</label
+                    >
+                  </div>
                 </div>
                 <br />
                 <div class="text-center">
@@ -1360,7 +1367,7 @@
                           <input
                             type="file"
                             class="custom-file-input"
-                            id="business_plan_file"
+                            id="cv_plan_file"
                             aria-describedby="inputGroupFileAddon01"
                             accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                           />
