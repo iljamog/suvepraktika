@@ -4,6 +4,7 @@
 </p>
 
 <h2>Ekraanitõmmis</h2>
+<img src="https://i.imgur.com/GJg6sQa.png">
 
 <h2>Eesmärk</h2>
 <p>Eesmärgiks oli täiendada Eesti Töötukassa taotluse vormi. Meie peamiseks ülesandeks oli luua kasutajasõbralik ja interaktiivne äriplaani ja finantsprognoosi sisestamise ja esitamise vorm, et asendada Word ja Excel. Tegime äriplaani täitmise vormi, kuid säilitasime võimaluse üleslaadida seda ka failina.</p>
