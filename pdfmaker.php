@@ -224,8 +224,8 @@ class TextNormalizerFPDF extends FPDF{
 		return urldecode($word);
 	}
 }
-//vormi submit
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+//vormi submit  && $_SERVER['REQUEST_METHOD'] == 'POST' , isset($_POST['next_btn_cv']
+if (isset($_POST['submit'])) {
     // andmete kinni püüdmine
     // ISIKLIKUD    
     $firstName = $_POST['fname'];
@@ -305,23 +305,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     //stiili sätted
     $pdf->SetFont("Arial","","20");
     $pdf->Cell("0","15", "ISIKLIKUD ANDMED", "B", 2, "C");
-
     $pdf->SetFont('Arial','',12);    
     $pdf->Cell("90","20", "Eesnimi: " . $firstName, 0, 0, "L");
     $pdf->Cell("30","20", "Perekonnanimi: " . $lastName, 0, 1, "L");
     $pdf->Cell("90","20", "Isikukood: " . $personalCode, 0, 0, "L");
     // tõlgime soo stringi eestikeelseks
     ($gender=='male') ? $gender = "Mees" : $gender = "Naine";
-    $pdf->Cell("30","20", "Sugu: " . $gender, 0, 1, "L");    
-
+    $pdf->Cell("30","20", "Sugu: " . $gender, 0, 1, "L");
     
     //ÄRIPLAAN
     
     $pdf->AddPage();
     
     $pdf->SetFont("Arial","","20");
-    $pdf->Cell("0","15", "ÄRIPLAAN", "B", 2, "C");
-    
+    $pdf->Cell("0","15", "ÄRIPLAAN", "B", 2, "C");    
     $pdf->Ln(10);
 
     $pdf->SetFont('Arial','B',12);    
@@ -340,6 +337,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
     
     // KES MA OLEN JA MIDA OLEN TÄNASEKS TEINUD?
+
     $pdf->AddPage();
     
     $pdf->SetFont('Arial','B',15);
@@ -389,6 +387,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->Ln(15);
 
     // MINU KLIENT
+
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',15);
     $pdf->Cell("0","10", "MINU KLIENT", 0, 2, "C");
@@ -436,8 +435,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->Write(7,$business_client_6);
     $pdf->Ln(15);
 
-
     // MINU TOODE JA / VÕI TEENUS
+
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',15);
     $pdf->Cell("0","10", "MINU TOODE JA / VÕI TEENUS", 0, 2, "C");
@@ -458,6 +457,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->Ln(15);
 
     // MINU KONKURENDID
+
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',15);
     $pdf->Cell("0","10", "MINU KONKURENDID", 0, 2, "C");
@@ -506,6 +506,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->Ln(15);
 
     // MINU TURUNDUS JA MÜÜK
+
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',15);
     $pdf->Cell("0","10", "MINU TURUNDUS JA MÜÜK", 0, 2, "C");
@@ -541,7 +542,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $pdf->SetFont('Arial','',9);
     $pdf->SetWidths(array(60,40,20,20,40));
-    //$temporaryArray = cellForEachStringDouble($business_action_1_1,$business_action_1_2);
     $pdf->Row(array("Tegevus", "Sihtrühm", "Ajakava" ,"Eelarve (EUR)", "Oodatud tulem"));
     for ($i=0; $i < (sizeof($business_marketing_5)/5); $i++) { 
         $pdf->Row(array($business_marketing_5[$i],$business_marketing_5[$i+1], $business_marketing_5[$i+2],$business_marketing_5[$i+3],$business_marketing_5[$i+4]));
@@ -552,7 +552,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $pdf->SetFont('Arial','',9);
     $pdf->SetWidths(array(60,40,20,20,40));
-    //$temporaryArray = cellForEachStringDouble($business_action_1_1,$business_action_1_2);
     $pdf->Row(array("Tegevus", "Sihtrühm", "Ajakava" ,"Eelarve (EUR)", "Oodatud tulem"));
     for ($i=0; $i < (sizeof($business_marketing_6)/5); $i++) { 
         $pdf->Row(array($business_marketing_6[$i],$business_marketing_6[$i+1],$business_marketing_6[$i+2],$business_marketing_6[$i+3],$business_marketing_6[$i+4]));
@@ -583,8 +582,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $pdf->SetWidths(array(90,90));    
     $pdf->Row(array("Ruum, vahend või seade, mis on olemas ...", "Millal saan kasutusele võtta?"));
-    for ($i=0; $i < (sizeof($business_action_1)/2); $i++) { 
-        $pdf->Row(array($business_action_1[$i],$business_action_1[$i+1]));
+    for ($i=0; $i < (sizeof($business_action_2)/2); $i++) { 
+        $pdf->Row(array($business_action_2[$i],$business_action_2[$i+1]));
     }
     $pdf->SetWidths(array(0,0));
     $pdf->SetFont('Arial','',12);
@@ -599,8 +598,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->SetFont('Arial','',9);
     $pdf->SetWidths(array(70,30,30,50));
     $pdf->Row(array("Ruum, vahend, seade või teenus, mida vaja", "Maksumus", "Millal saan kasutusele võtta?	" ,"Rahastamisallikas (laen, toetus vms)"));
-    for ($i=0; $i < (sizeof($business_action_2)/4); $i++) { 
-        $pdf->Row(array($business_action_2[$i],$business_action_2[$i+1],$business_action_2[$i+2],$business_action_2[$i+3]));
+    for ($i=0; $i < (sizeof($business_action_3)/4); $i++) { 
+        $pdf->Row(array($business_action_3[$i],$business_action_3[$i+1],$business_action_3[$i+2],$business_action_3[$i+3]));
     }
     $pdf->SetWidths(array(0,0));
     $pdf->SetFont('Arial','',12);
@@ -616,8 +615,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->SetFont('Arial','',9);
     $pdf->SetWidths(array(50,30,30,70));
     $pdf->Row(array("Tegevusluba, litsents, sertifikaat, kooskõlastus jms", "Maksumus", "Saamiseks kuluv aeg" ,"Tegevusluba, litsents, sertifikaat, kooskõlastus olemas (kuu, aasta)"));
-    for ($i=0; $i < (sizeof($business_action_4)/4); $i++) { 
-        $pdf->Row(array($business_action_4[$i],$business_action_4[$i+1],$business_action_4[$i+2],$business_action_4[$i+3]));
+    for ($i=0; $i < (sizeof($business_action_5)/4); $i++) { 
+        $pdf->Row(array($business_action_5[$i],$business_action_5[$i+1],$business_action_5[$i+2],$business_action_5[$i+3]));
     }
     $pdf->SetWidths(array(0,0));
     $pdf->SetFont('Arial','',12);
@@ -630,7 +629,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->Write(7,$business_action_6);
     $pdf->Ln(15);
 
-    // MINU TOOTMINE, TEENUSE PAKKUMINE JA TARNE    
+    // MINU TOOTMINE, TEENUSE PAKKUMINE JA TARNE 
+    
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',15);
     $pdf->Cell("0","10", "MINU TOOTMINE, TEENUSE PAKKUMINE JA TARNE", 0, 2, "C");
@@ -672,6 +672,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->Ln(15);
 
     // PERSONAL JA PARTNERID
+
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',15);
     $pdf->Cell("0","10", "MINU TOOTMINE, TEENUSE PAKKUMINE JA TARNE", 0, 2, "C");
@@ -706,6 +707,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->Ln(15);
 
     // HINNASTAM15INE
+
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',15);
     $pdf->Cell("0","10", "MINU TOOTMINE, TEENUSE PAKKUMINE JA TARNE", 0, 2, "C");
@@ -767,7 +769,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->Ln(10);
 
     $pdf->SetWidths(array(80,100));    
-    $pdf->Row(array("Hangitav toode või teenus", "Tarnija", "Makseviis ja -tähtaeg"));
+    $pdf->Row(array("Hangitav toode või teenus", "Makseviis ja -tähtaeg"));
     for ($i=0; $i < (sizeof($business_settlement_2)/2); $i++) { 
         $pdf->Row(array($business_settlement_2[$i],$business_settlement_2[$i+1]));
     }
@@ -775,6 +777,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->Ln(15);
 
     // MINU PLAAN B
+
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',15);
     $pdf->Cell("0","10", "MINU PLAAN B", 0, 2, "C");
@@ -790,25 +793,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pdf->Output();
     ob_end_flush();
 }
-/*
-// komaga eraldada palutud sisendite slicimine
-function cellForEachStringTriple($input1,$input2,$input3){ // kolmene tabel
-    $dataArray = array();
-    $separatedInputs1 = explode(",",$input1);
-    array_push($dataArray,$separatedInputs1);
-    $separatedInputs2 = explode(",",$input2);
-    array_push($dataArray,$separatedInputs2);
-    $separatedInputs3 = explode(",",$input3);
-    array_push($dataArray,$separatedInputs3);
-    return $dataArray; 
-}
-function cellForEachStringDouble($input1,$input2){ // kahene tabel
-    $dataArray = array();
-    $separatedInputs1 = explode(",",$input1);
-    array_push($dataArray,$separatedInputs1);
-    $separatedInputs2 = explode(",",$input2);
-    array_push($dataArray,$separatedInputs2);        
-    return $dataArray; 
-}
-*/
 ?>

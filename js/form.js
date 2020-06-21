@@ -43,78 +43,91 @@ $("#fillCollapse").click(function () {
 });
 
 
-
 // Avalduse submit
 
-$(function() { // lühiversioon document.ready funktsioonist
-  $('#register_form').on('submit', function(e) {
+function validateForm(){ // lühiversioon document.ready funktsioonist
 
-      // submit ei vii järgmisele lehele
-      e.preventDefault();
-
-      // Eemaldame submit funktsiooni, et saada käivitada käsitsi
-      $(this).unbind('submit');  
-
-      // äriplaani osa väljad 
-      var allInputs = $("#collapse2 :input"); //  Valib kõik inputid - textarea, radio, checked ...
+      // ainult äriplaani osa väljad 
+      var div = document.getElementById("collapse2");
+      var allInputs = $(div).find('input:text, textarea'); //  Valime ainult input type text ja textarea
       var allLabels = $("#collapse2 label");
+      console.log(allInputs.length);
+      for (let index = 0; index < allLabels.length; index++) {
+        console.log(index + allLabels[index].outerText);
+        console.log(index + allInputs[index].name);
+        
+      }
 
       // kasutatud set, sest 1 labeli all võib olla mitu input välja
       var errorMessageArray = new Set();
       
-
-      /*$.each(allInputs, function(index, value) {
+      // kontrollime igat sisestuse välja
+      $.each(allInputs, function(index, value) {
         var originalValue = value.value;
-        var trimmedValue = String(originalValue.trim());  
+        var trimmedValue = String(originalValue.trim());
+        if (trimmedValue.length < 10 && trimmedValue!="Kustuta") { 
+          if (allInputs[index].name == "business_product_1"){
 
-        //Object.keys(trimmedValue)
-        if (trimmedValue.length < 10) {          
-          if (index==54 || index== 55) {
+            errorMessageArray.add(String(allLabels[14].outerText));
 
-            errorMessageArray.add(String(allLabels[49].outerText));
+          } else if (allInputs[index].name == "business_product_2"){
+            
+            errorMessageArray.add(String(allLabels[16].outerText));
 
-          } else if(index==51 || index==52 || index ==53 ){
+          } else if (allInputs[index].name == "business_competitor_5"){
+            
+            errorMessageArray.add(String(allLabels[21].outerText));
+            
+          } else if (!value.name.includes("cell")) {
 
+            // kui pole tabel-input, siis võtab eelseisva labeli teksti
+            var label = $( value ).prev("label");
+            errorMessageArray.add(label.text());
+
+          } else if(value.name.includes("business_marketing_cell[]")) {
+
+            errorMessageArray.add(String(allLabels[27].outerText));
+
+          } else if(value.name.includes("business_marketing_cell_2[]")) {
+
+            errorMessageArray.add(String(allLabels[28].outerText));
+
+          } else if(value.name.includes("business_action_cell[]")) {
+
+            errorMessageArray.add(String(allLabels[30].outerText));
+
+          } else if(value.name.includes("business_action_cell_2[]")) {
+            
+            errorMessageArray.add(String(allLabels[31].outerText));
+
+          } else if(value.name.includes("business_action_cell_3[]")) {
+            
+            errorMessageArray.add(String(allLabels[33].outerText));
+
+          } else if(value.name.includes("business_settlement_cell[]")) {
+            
             errorMessageArray.add(String(allLabels[48].outerText));
 
-          } else if(index==31 || index==32 || index ==33 ){
-
-            errorMessageArray.add(String(allLabels[29].outerText));
-
-          }else if (index > 49) {
-            // do nothing
-          } else {
+          } else if(value.name.includes("business_settlement_cell_2[]")) {
             
-            errorMessageArray.add(String(allLabels[index].outerText));
+            errorMessageArray.add(String(allLabels[49].outerText));
 
           }
         } // if input liiga lühike lõpp    
-      }); // foeach input lõpp*/
+      }); // foeach input lõpp
+      
 
       // KAS SUBMIT VÕI MITTE
       
       if (errorMessageArray.size == 0) {
         //kui korras submitime
-        // submiti tegemine käsitsi 
-        e.currentTarget.submit();
+        // submiti tegemine käsitsi
+        $("#submit").trigger("click"); 
+        
         
       } else {
+
         // täidame errorMessages divi
-
-        //test
-        
-        /*var table = document.getElementById("business_marketing_table_1");
-        console.log(table.cells);
-        for (var i = 0, cell; cell = table.cells[i]; i++) {
-            //iterate through cells
-            //cells would be accessed using the "cell" variable assigned in the for loop
-
-            console.log(cell);
-        }*/
-
-        //test
-        
-
 
         $("#errorMessages").css("border", "solid 1px red");
         $("#errorMessages").css("padding", "1%");
@@ -125,12 +138,13 @@ $(function() { // lühiversioon document.ready funktsioonist
           var message = $("<li></li>").text(element);
           $("#errorMessages").append(message);
           $("#data-tab").trigger("click");
-        });
+        });  
+        allInputs = [];
+        errorMessageArray = [];
 
       }
 
-  }); // Avalduse submit lõpp
-}); // Avalduse submit lõpp
+}// Avalduse submit lõpp
 
 $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
