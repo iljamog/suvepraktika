@@ -61,8 +61,9 @@ $(function() { // lühiversioon document.ready funktsioonist
 
       // kasutatud set, sest 1 labeli all võib olla mitu input välja
       var errorMessageArray = new Set();
+      
 
-      $.each(allInputs, function(index, value) {
+      /*$.each(allInputs, function(index, value) {
         var originalValue = value.value;
         var trimmedValue = String(originalValue.trim());  
 
@@ -88,7 +89,7 @@ $(function() { // lühiversioon document.ready funktsioonist
 
           }
         } // if input liiga lühike lõpp    
-      }); // foeach input lõpp
+      }); // foeach input lõpp*/
 
       // KAS SUBMIT VÕI MITTE
       
@@ -99,6 +100,22 @@ $(function() { // lühiversioon document.ready funktsioonist
         
       } else {
         // täidame errorMessages divi
+
+        //test
+        
+        /*var table = document.getElementById("business_marketing_table_1");
+        console.log(table.cells);
+        for (var i = 0, cell; cell = table.cells[i]; i++) {
+            //iterate through cells
+            //cells would be accessed using the "cell" variable assigned in the for loop
+
+            console.log(cell);
+        }*/
+
+        //test
+        
+
+
         $("#errorMessages").css("border", "solid 1px red");
         $("#errorMessages").css("padding", "1%");
 
@@ -119,9 +136,3 @@ $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 });
-
-n =  new Date();
-y = n.getFullYear();
-m = n.getMonth() + 1;
-d = n.getDate();
-document.getElementById("date").innerHTML ="Koostamise kuu ja aasta: "+ m + " / " + y;

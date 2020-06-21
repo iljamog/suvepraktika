@@ -1,5 +1,7 @@
 <?php
-require_once("fpdf/fpdf.php");
+ob_start();
+require_once('fpdf/fpdf.php');
+print_r($_POST);
 
 // lisatud funktsioonid, mis võimaldavad kasutada erisümboleid ja Eesti tähti.
 // Saadud https://gist.github.com/gale93/78306ec438698032de747f4d99604419
@@ -221,22 +223,17 @@ class TextNormalizerFPDF extends FPDF{
 
 		return urldecode($word);
 	}
-
 }
-
 //vormi submit
-if (isset($_POST['next_btn_cv'])){
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // andmete kinni püüdmine
-    // ISIKLIKUD
+    // ISIKLIKUD    
     $firstName = $_POST['fname'];
     $lastName = $_POST['lname'];
     $personalCode = $_POST['idcode'];
     $gender = $_POST['gender'];
-    $postIndex = $_POST['postalcode'];
     // ÄRIPLAAN
     $business_name = $_POST['business_name'];
-    $business_date = $_POST['business_date'];
     $business_idea = $_POST['business_idea'];
     // KES MA OLEN JA MIDA OLEN TÄNASEKS TEINUD?
     $business_personal_1 = $_POST['business_personal_1'];
@@ -268,23 +265,21 @@ if (isset($_POST['next_btn_cv'])){
     $business_marketing_2 = $_POST['business_marketing_2'];
     $business_marketing_3 = $_POST['business_marketing_3'];
     $business_marketing_4 = $_POST['business_marketing_4'];
-    $business_marketing_5 = $_POST['business_marketing_5'];
+    $business_marketing_5 = $_POST['business_marketing_cell'];
+    $business_marketing_6 = $_POST['business_marketing_cell_2'];
     // TEGEVUSE KÄIVITAMISE KAVA
-    $business_action_1_1 = $_POST['business_action_1_1'];
-    $business_action_1_2 = $_POST['business_action_1_2'];
-    $business_action_2_1 = $_POST['business_action_2_1'];
-    $business_action_2_2 = $_POST['business_action_2_2'];
-    $business_action_2_3 = $_POST['business_action_2_3'];
-    $business_action_3_1 = $_POST['business_action_3_1'];
-    $business_action_4_1 = $_POST['business_action_4_1'];
-    $business_action_5_1 = $_POST['business_action_5_1'];
+    $business_action_1 = $_POST['business_action_1'];
+    $business_action_2 = $_POST['business_action_cell'];
+    $business_action_3 = $_POST['business_action_cell_2'];
+    $business_action_4 = $_POST['business_action_4'];
+    $business_action_5 = $_POST['business_action_cell_3'];
+    $business_action_6 = $_POST['business_action_6'];
     // MINU TOOTMINE, TEENUSE PAKKUMINE JA TARNE    
     $business_production_1 = $_POST['business_production_1'];
     $business_production_2 = $_POST['business_production_2'];
     $business_production_3 = $_POST['business_production_3'];
     $business_production_4 = $_POST['business_production_4'];
     $business_production_5 = $_POST['business_production_5'];
-    $business_production_6 = $_POST['business_production_6'];
     // PERSONAL JA PARTNERID
     $business_associate_1 = $_POST['business_associate_1'];
     $business_associate_2 = $_POST['business_associate_2'];
@@ -296,22 +291,15 @@ if (isset($_POST['next_btn_cv'])){
     $business_pricing_3 = $_POST['business_pricing_3'];
     $business_pricing_4 = $_POST['business_pricing_4'];
     // ARVELDAMINE
-    $business_settlement_1_1 = $_POST['business_settlement_1_1'];
-    $business_settlement_1_2 = $_POST['business_settlement_1_2'];
-    $business_settlement_1_3 = $_POST['business_settlement_1_3'];
-    $business_settlement_2_1 = $_POST['business_settlement_2_1'];
-    $business_settlement_2_2 = $_POST['business_settlement_2_2'];
+    $business_settlement_1 = $_POST['business_settlement_cell'];
+    $business_settlement_2 = $_POST['business_settlement_cell_2'];
     // MINU PLAAN B
     $business_plan_b = $_POST['business_plan_b'];
 
-    $cellwidth = 190;
-
     // PDFi loomine klassi abil
     // constructor - portrait , millimeetrid, a4 leht
-    $pdf = new TextNormalizerFPDF('p', 'mm', 'A4'); 
-
+    $pdf = new TextNormalizerFPDF('p', 'mm', 'A3');
     //ISIKLIKUD ANDMED
-    
     // loob pdf lehe
     $pdf->AddPage();
     //stiili sätted
@@ -325,16 +313,15 @@ if (isset($_POST['next_btn_cv'])){
     // tõlgime soo stringi eestikeelseks
     ($gender=='male') ? $gender = "Mees" : $gender = "Naine";
     $pdf->Cell("30","20", "Sugu: " . $gender, 0, 1, "L");    
-    $pdf->Cell("30","20", "Postiindeks: " . $postIndex, 0, 0, "L");
 
-    /**
-     * ÄRIPLAAN
-     */
+    
+    //ÄRIPLAAN
+    
     $pdf->AddPage();
     
     $pdf->SetFont("Arial","","20");
     $pdf->Cell("0","15", "ÄRIPLAAN", "B", 2, "C");
-    // ISIKLIKUD
+    
     $pdf->Ln(10);
 
     $pdf->SetFont('Arial','B',12);    
@@ -353,6 +340,8 @@ if (isset($_POST['next_btn_cv'])){
     
     
     // KES MA OLEN JA MIDA OLEN TÄNASEKS TEINUD?
+    $pdf->AddPage();
+    
     $pdf->SetFont('Arial','B',15);
     $pdf->Cell("0","10", "KES MA OLEN JA MIDA OLEN TÄNASEKS TEINUD? ", 0, 2, "C");
     $pdf->Ln(10);
@@ -413,7 +402,7 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Tunnen oma klienti, sest tänaseks olen teinud järgmisi tegevusi (nt. kõned, kohtumised, eelkokkulepped ja nendega kaetud potentsiaalne müük, proovitööd) ja jõudnud … (arv) kliendini:"); 
+    $pdf->Write(5 ,"Tunnen oma klienti, sest tänaseks olen teinud järgmisi tegevusi (nt. kõned, kohtumised, eelkokkulepped ja nendega kaetud potentsiaalne müük, proovitööd) ja jõudnud ... (arv) kliendini:"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_client_2);
@@ -441,7 +430,7 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Esimesel tegevusaastal saab mul olema … (arv) klienti, sest … (põhjendus)"); 
+    $pdf->Write(5 ,"Esimesel tegevusaastal saab mul olema ... (arv) klienti, sest ... (põhjendus)"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_client_6);
@@ -489,7 +478,7 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Minu konkurentide tugevused on... Ma võiksin neilt õppida, kuidas…"); 
+    $pdf->Write(5 ,"Minu konkurentide tugevused on... Ma võiksin neilt õppida, kuidas..."); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_competitor_3);
@@ -503,7 +492,7 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Minu toode ja / või teenus on konkurentidega võrreldav ja neist eristuv sellepärast, et…"); 
+    $pdf->Write(5 ,"Minu toode ja / või teenus on konkurentidega võrreldav ja neist eristuv sellepärast, et..."); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_competitor_5);
@@ -537,7 +526,7 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Minu kliendid otsivad ja saavad informatsiooni minu valdkonna kohta praegu … kanalitest … märksõnade abil"); 
+    $pdf->Write(5 ,"Minu kliendid otsivad ja saavad informatsiooni minu valdkonna kohta praegu ... kanalitest ... märksõnade abil"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_marketing_3);
@@ -550,13 +539,28 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Write(7,$business_marketing_4);
     $pdf->Ln(15);
 
-    $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Äri käivitamisel (nt esimesed … kuud) on minu kava nende turundustegevuste elluviimiseks"); 
+    $pdf->SetFont('Arial','',9);
+    $pdf->SetWidths(array(60,40,20,20,40));
+    //$temporaryArray = cellForEachStringDouble($business_action_1_1,$business_action_1_2);
+    $pdf->Row(array("Tegevus", "Sihtrühm", "Ajakava" ,"Eelarve (EUR)", "Oodatud tulem"));
+    for ($i=0; $i < (sizeof($business_marketing_5)/5); $i++) { 
+        $pdf->Row(array($business_marketing_5[$i],$business_marketing_5[$i+1], $business_marketing_5[$i+2],$business_marketing_5[$i+3],$business_marketing_5[$i+4]));
+    }
+    $pdf->SetWidths(array(0,0));
     $pdf->SetFont('Arial','',12);
-    $pdf->Ln(10);
-    $pdf->Write(7,$business_marketing_5);
     $pdf->Ln(15);
-    
+
+    $pdf->SetFont('Arial','',9);
+    $pdf->SetWidths(array(60,40,20,20,40));
+    //$temporaryArray = cellForEachStringDouble($business_action_1_1,$business_action_1_2);
+    $pdf->Row(array("Tegevus", "Sihtrühm", "Ajakava" ,"Eelarve (EUR)", "Oodatud tulem"));
+    for ($i=0; $i < (sizeof($business_marketing_6)/5); $i++) { 
+        $pdf->Row(array($business_marketing_6[$i],$business_marketing_6[$i+1],$business_marketing_6[$i+2],$business_marketing_6[$i+3],$business_marketing_6[$i+4]));
+    }
+    $pdf->SetWidths(array(0,0));
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln(15);
+
     // TEGEVUSE KÄIVITAMISE KAVA
 
     $pdf->AddPage();
@@ -566,56 +570,64 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(10);
 
     $pdf->SetFont('Arial','B',12); 
+    $pdf->Write(5 ,"Minu äri tegevuskoht on:"); 
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln(10);
+    $pdf->Write(7,$business_action_1);
+    $pdf->Ln(15);
+
+    $pdf->SetFont('Arial','B',12); 
     $pdf->Write(5 ,"Tootmiseks või teenuse osutamiseks on mul praeguseks olemas ..."); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
 
-    // tabel
-    $pdf->SetWidths(array(130,50));
-    $temporaryArray = cellForEachStringDouble($business_action_1_1,$business_action_1_2);
-    $pdf->Row(array("Ruum, vahend või seade, mis on olemas ...","Saan võtta kasutusele"));
-    for ($i=0; $i < sizeof($temporaryArray[0]); $i++) { 
-        $pdf->Row(array($temporaryArray[0][$i],$temporaryArray[1][$i]));
+    $pdf->SetWidths(array(90,90));    
+    $pdf->Row(array("Ruum, vahend või seade, mis on olemas ...", "Millal saan kasutusele võtta?"));
+    for ($i=0; $i < (sizeof($business_action_1)/2); $i++) { 
+        $pdf->Row(array($business_action_1[$i],$business_action_1[$i+1]));
     }
     $pdf->SetWidths(array(0,0));
+    $pdf->SetFont('Arial','',12);
+    $pdf->Ln(15);
 
     $pdf->Ln(15);
     $pdf->SetFont('Arial','B',12); 
     $pdf->Write(5 ,"Lisaks vajan tootmiseks/teenuse osutamiseks ..."); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
-    // tabel lõpp
-
-    // tabel
-    $pdf->SetWidths(array(100,40,40));
-    $temporaryArray = cellForEachStringTriple($business_action_2_1,$business_action_2_2,$business_action_2_3);
-    $pdf->Row(array("Ruum, vahend või seade, mida vaja ...","Maksumus","Saan võtta kasutusele"));
-    for ($i=0; $i < sizeof($temporaryArray[0]); $i++) { 
-        $pdf->Row(array($temporaryArray[0][$i],$temporaryArray[1][$i],$temporaryArray[2][$i]));
+    
+    $pdf->SetFont('Arial','',9);
+    $pdf->SetWidths(array(70,30,30,50));
+    $pdf->Row(array("Ruum, vahend, seade või teenus, mida vaja", "Maksumus", "Millal saan kasutusele võtta?	" ,"Rahastamisallikas (laen, toetus vms)"));
+    for ($i=0; $i < (sizeof($business_action_2)/4); $i++) { 
+        $pdf->Row(array($business_action_2[$i],$business_action_2[$i+1],$business_action_2[$i+2],$business_action_2[$i+3]));
     }
     $pdf->SetWidths(array(0,0));
+    $pdf->SetFont('Arial','',12);
     $pdf->Ln(15);
-    // tabel lõpp
 
     $pdf->SetFont('Arial','B',12); 
     $pdf->Write(5 ,"Ettevõtte käivitan ... vormis"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
-    $pdf->Write(7,$business_action_3_1);
+    $pdf->Write(7,$business_action_4);
     $pdf->Ln(15);
 
-    $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Loetlen üles oma toote ja teenuse pakkumiseks vajaminevad tegevusload, litsentsid, sertifikaadid, kooskõlastused. "); 
+    $pdf->SetFont('Arial','',9);
+    $pdf->SetWidths(array(50,30,30,70));
+    $pdf->Row(array("Tegevusluba, litsents, sertifikaat, kooskõlastus jms", "Maksumus", "Saamiseks kuluv aeg" ,"Tegevusluba, litsents, sertifikaat, kooskõlastus olemas (kuu, aasta)"));
+    for ($i=0; $i < (sizeof($business_action_4)/4); $i++) { 
+        $pdf->Row(array($business_action_4[$i],$business_action_4[$i+1],$business_action_4[$i+2],$business_action_4[$i+3]));
+    }
+    $pdf->SetWidths(array(0,0));
     $pdf->SetFont('Arial','',12);
-    $pdf->Ln(10);
-    $pdf->Write(7,$business_action_4_1);
     $pdf->Ln(15);
 
     $pdf->SetFont('Arial','B',12); 
     $pdf->Write(5 ,"Minu esimene müügitehing toimub"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
-    $pdf->Write(7,$business_action_5_1);
+    $pdf->Write(7,$business_action_6);
     $pdf->Ln(15);
 
     // MINU TOOTMINE, TEENUSE PAKKUMINE JA TARNE    
@@ -657,13 +669,6 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
     $pdf->Write(7,$business_production_5);
-    $pdf->Ln(15);
-
-    $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Kuidas klient minu toodet ja / või teenust ostab"); 
-    $pdf->SetFont('Arial','',12);
-    $pdf->Ln(10);
-    $pdf->Write(7,$business_production_6);
     $pdf->Ln(15);
 
     // PERSONAL JA PARTNERID
@@ -747,32 +752,27 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
 
-    // tabel
-    $pdf->SetWidths(array(100,40,40));
-    $temporaryArray = cellForEachStringTriple($business_action_2_1,$business_action_2_2,$business_action_2_3);
-    $pdf->Row(array("Hangitav toode või teenus","Tarnija","Makseviis ja -tähtaeg"));
-    for ($i=0; $i < sizeof($temporaryArray[0]); $i++) { 
-        $pdf->Row(array($temporaryArray[0][$i],$temporaryArray[1][$i],$temporaryArray[2][$i]));
+    $pdf->SetWidths(array(60,60,60));    
+    $pdf->Row(array("Hangitav toode või teenus", "Tarnija", "Makseviis ja -tähtaeg"));
+    for ($i=0; $i < (sizeof($business_settlement_1)/3); $i++) { 
+        $pdf->Row(array($business_settlement_1[$i],$business_settlement_1[$i+1],$business_settlement_1[$i+2]));
     }
     $pdf->SetWidths(array(0,0));
     $pdf->Ln(15);
-    // tabel lõpp
 
     $pdf->Ln(15);
     $pdf->SetFont('Arial','B',12); 
-    $pdf->Write(5 ,"Kuidas klient mulle maksab talle müüdud toote või teenuse eest?"); 
+    $pdf->Write(5 ,"Kuidas klient, sh edasimüüja mulle maksab talle müüdud toote või teenuse eest?"); 
     $pdf->SetFont('Arial','',12);
     $pdf->Ln(10);
 
-    // tabel
-    $pdf->SetWidths(array(130,50));
-    $temporaryArray = cellForEachStringDouble($business_action_1_1,$business_action_1_2);
-    $pdf->Row(array("Klient","Makseviis ja -tähtaeg"));
-    for ($i=0; $i < sizeof($temporaryArray[0]); $i++) { 
-        $pdf->Row(array($temporaryArray[0][$i],$temporaryArray[1][$i]));
+    $pdf->SetWidths(array(80,100));    
+    $pdf->Row(array("Hangitav toode või teenus", "Tarnija", "Makseviis ja -tähtaeg"));
+    for ($i=0; $i < (sizeof($business_settlement_2)/2); $i++) { 
+        $pdf->Row(array($business_settlement_2[$i],$business_settlement_2[$i+1]));
     }
     $pdf->SetWidths(array(0,0));
-    // tabel lõpp
+    $pdf->Ln(15);
 
     // MINU PLAAN B
     $pdf->AddPage();
@@ -786,12 +786,11 @@ if (isset($_POST['next_btn_cv'])){
     $pdf->Ln(10);
     $pdf->Write(7,$business_plan_b);
     $pdf->Ln(15);
-    
     //väljastamise meetod, default avab browseris
     $pdf->Output();
+    ob_end_flush();
 }
-
-
+/*
 // komaga eraldada palutud sisendite slicimine
 function cellForEachStringTriple($input1,$input2,$input3){ // kolmene tabel
     $dataArray = array();
@@ -803,7 +802,6 @@ function cellForEachStringTriple($input1,$input2,$input3){ // kolmene tabel
     array_push($dataArray,$separatedInputs3);
     return $dataArray; 
 }
-
 function cellForEachStringDouble($input1,$input2){ // kahene tabel
     $dataArray = array();
     $separatedInputs1 = explode(",",$input1);
@@ -812,5 +810,5 @@ function cellForEachStringDouble($input1,$input2){ // kahene tabel
     array_push($dataArray,$separatedInputs2);        
     return $dataArray; 
 }
-
+*/
 ?>
