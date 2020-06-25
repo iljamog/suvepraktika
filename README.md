@@ -30,4 +30,7 @@
 <p>Gleb Stepanov</p>
 
 <h2>Paigaldusjuhised</h2>
-<p>Eelnevalt on vaja veebiserverit, kus oleks PHP paigaldatud. Kui see on olemas, tuleks kopeerida failid oma serveri HTML kausta, eraldi konfigureerimist ei ole vaja.</p>
+<p>1. Konfigureerida serveri tulemüüri, et laseks läbi HTTP ja HTTPS ühendused</>
+<p>2. Serverile paigaldada Apache HTTP server</p>
+<p>3. Serverile paigaldada PHP 7.4 või uuem </p>
+<p>4. Kui eelnevalt nõutud tarkvarad installeeriti vaikimisi seadistuse järgi, siis paigutada Githubis olevad failid /var/www/html/ kausta</p>
