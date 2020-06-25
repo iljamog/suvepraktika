@@ -790,7 +790,7 @@ if (isset($_POST['submit'])) {
     $pdf->Write(7,$business_plan_b);
     $pdf->Ln(15);
     //väljastamise meetod, default avab browseris
-    $pdf->Output();
+    $pdf->Output("Ariplaan.pdf", "D");
     ob_end_flush();
 }
 ?>
