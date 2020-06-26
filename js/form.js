@@ -44,12 +44,34 @@ $("#fillCollapse").click(function () {
 
 // Avalduse submit
 
-function validateForm() {
-  // lühiversioon document.ready funktsioonist
+function validateForm() { // lühiversioon document.ready funktsioonist
+
+  // Tühjendame errorMessages divi
+  $("#errorMessages").empty();
 
   var business_plan_file = document.getElementById("business_plan_file");
+  var finance_plan_file = document.getElementById("finance_plan_file");
+  var cv_file = document.getElementById("cv_file");
 
-  if (business_plan_file.files.length != 0) {
+  if (finance_plan_file.files.length == 0) {
+    $("#errorMessages").css("border", "solid 1px red");
+    $("#errorMessages").css("padding", "1%");
+    var fileErrorMessage = $("<h5></h5>").text("Palun lisage finantsprognooside fail");
+    $("#errorMessages").append(fileErrorMessage);
+    $("#data-tab").trigger("click");
+    return;
+  }
+
+  if (cv_file.files.length == 0) {
+    $("#errorMessages").css("border", "solid 1px red");
+    $("#errorMessages").css("padding", "1%");
+    var fileErrorMessage = $("<h5></h5>").text("Palun lisage CV fail");
+    $("#errorMessages").append(fileErrorMessage);
+    $("#data-tab").trigger("click");
+    return;
+  }
+
+  if (business_plan_file.files.length != 0 && finance_plan_file.files.length != 0 && cv_file.files.length != 0) {
     // triggerib done tab
     $("#result-tab").tab("show");
     $("#cv-li").addClass("d-none");
@@ -121,10 +143,8 @@ function validateForm() {
       });
       
     } else {
-      // Tühjendame errorMessages divi
-      $("#errorMessages").empty();
+      
       // täidame errorMessages divi
-
       $("#errorMessages").css("border", "solid 1px red");
       $("#errorMessages").css("padding", "1%");
 
