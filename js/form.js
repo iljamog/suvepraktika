@@ -28,14 +28,6 @@ $("#previous_btn_cv").click(function () {
   $("#finance-tab").trigger("click");
 });
 
-$("#next_btn_cv").click(function () {
-  $("#result-tab").tab("show");
-  $("#cv-li").addClass("d-none");
-  $("#finance-li").addClass("d-none");
-  $("#business-li").addClass("d-none");
-  $("#data-li").addClass("d-none");
-});
-
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
@@ -59,6 +51,12 @@ function validateForm() {
 
   if (business_plan_file.files.length != 0) {
     // triggerib done tab
+    $("#result-tab").tab("show");
+    $("#cv-li").addClass("d-none");
+    $("#finance-li").addClass("d-none");
+    $("#business-li").addClass("d-none");
+    $("#data-li").addClass("d-none");
+    $("#next_btn_data2").attr("hidden",true);
   } else {
     // ainult äriplaani osa väljad
     var div = document.getElementById("collapse2");
@@ -111,7 +109,17 @@ function validateForm() {
     if (errorMessageArray.size == 0) {
       //kui korras submitime
       // submiti tegemine käsitsi
-      $("#submit").trigger("click");
+
+      $("#result-tab").tab("show");
+      $("#cv-li").addClass("d-none");
+      $("#finance-li").addClass("d-none");
+      $("#business-li").addClass("d-none");
+      $("#data-li").addClass("d-none");
+
+      $("#next_btn_data2").click(function () {
+        $("#submit").trigger("click");
+      });
+      
     } else {
       // Tühjendame errorMessages divi
       $("#errorMessages").empty();
