@@ -120,7 +120,7 @@
     <div class="container box mt-3">
       <form method="POST" id="register_form" target="_blank"> <!-- action="pdfmaker.php" -->
         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-          <li class="nav-item menu">
+          <li class="nav-item menu" id="data-li">
             <a
               class="nav-link active"
               id="data-tab"
@@ -130,7 +130,7 @@
               >Andmed</a
             >
           </li>
-          <li class="nav-item menu">
+          <li class="nav-item menu" id="business-li">
             <a
               class="nav-link"
               id="business-tab"
@@ -140,7 +140,7 @@
               >Äriplaan</a
             >
           </li>
-          <li class="nav-item menu">
+          <li class="nav-item menu" id="finance-li">
             <a
               class="nav-link"
               id="finance-tab"
@@ -150,7 +150,7 @@
               >Finantsprognoos</a
             >
           </li>
-          <li class="nav-item menu">
+          <li class="nav-item menu" id="cv-li">
             <a
               class="nav-link"
               id="cv-tab"
@@ -160,7 +160,7 @@
               >CV</a
             >
           </li>
-          <li class="nav-item menu"> <!-- and class d-none to hide -->
+          <li class="nav-item menu d-none"> <!-- and class d-none to hide -->
             <a
               class="nav-link"
               id="result-tab"
@@ -1871,7 +1871,7 @@
                       <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
                     </svg>
                   </button>
-                  <button type="submit" formaction="pdfmaker.php" hidden name="submit" id="submit"></button>
+                  <!-- <button type="submit" formaction="pdfmaker.php" hidden name="submit" id="submit"></button> -->
                 </div>
                 <br />
               </div>
